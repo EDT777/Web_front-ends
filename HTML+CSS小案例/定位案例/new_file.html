@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 绝对定位不占位置 相对定位占位置 */
+			.box {
+				margin: 100px auto;
+				padding: 10px;
+				width: 310px;
+				height: 190px;
+				border: 1px solid #050505;
+				position: relative;
+			}
+			.box .up {
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img src="../images/定位/adv.jpg" alt="">
+			<img src="../images/定位/br.gif" alt="" class="up">
+		</div>
+	</body>
+</html>
