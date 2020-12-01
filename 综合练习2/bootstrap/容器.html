@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>-->
+		<!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+		<title>
+			Bootstrap 容器类实例
+		</title>
+	</head>
+	<body>
+		<div class="container text-center" style="background-color: green;">
+			container
+		</div>	
+		<div class="container-fluid text-center" style="background: red;">
+			container-fluid
+		</div>
+		
+		<!-- JS文件放到body最下面
+		如果把js 放到head头部加载，会延迟页面加载时间。因为js加载是同步加载。有抑制加载的作用。
+		理论上来说js标签放在html文档的任何位置都可以，规范起见，推荐放到body结束标签的末尾，包含到body标签内这样处理的好处是无需担心因页面未完成加载，造成DOM节点获取不到，使脚本报错的问题，而且能避免因脚本运行缓慢造成页面卡死的问题。另外，Yahoo的前端优化指南里就有这一条。 -->
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

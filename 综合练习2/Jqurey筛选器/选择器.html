@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery选择器</title>
+		<script src="./js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				//属性选择器				
+				//$('[name="testgrap1"]').css('color','red');
+				//$('[name!="testgrap1"]').css('color','red');
+				//$('[name^="test"]').css('color','red'); //以xx开头
+				//$('[name$="grap1"]').css('color','red'); //以xx结尾
+				//$('[name*="grap"]').css('color','red'); //包含xx
+				//$('[id][name*="grap"]').css('color','red'); //复合属性选择器
+
+				//组合选择器
+				//$('.first,.last').css('color','red'); //并集
+				//$('p.mid').css('color','red'); //交集
+
+				//$('p.mid+a').css('color','red'); //紧挨的下一个兄弟a节点
+				//$('p.mid~a').css('color','red'); //后面的所有兄弟a节点
+			});
+		</script>
+		<style type="text/css">
+			.mid {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<p name='testgrap1' id="grap1">
+			测试段落1
+		</p>
+		<p name='testgrap2'>
+			测试段落2
+		</p>
+
+		<div>
+			<p class="first">段落1</p>
+			<a href="#">链接1</a>
+			<p>段落2</p>
+			<a href="#">链接2</a>
+			<p>段落3</p>
+			<a href="#">链接3</a>
+			<p class="mid">段落4 (mid)</p>
+			<a href="#" class="mid">链接4 (mid)</a>
+			<p>段落5</p>
+			<a href="#">链接5</a>
+			<p>段落6</p>
+			<a href="#">链接6</a>
+			<p>段落7</p>
+			<a href="#" class="last">链接7</a>
+		</div>
+	</body>
+</html>

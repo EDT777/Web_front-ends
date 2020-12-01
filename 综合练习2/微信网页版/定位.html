@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+			}
+			.sub {
+				width: 200px;
+				height: 200px;
+				line-height: 200px;
+				text-align: center;
+				margin: 10px;
+				border: 1px  red solid;
+			}
+			
+			.box2 {
+				position: absolute;
+				background: #0000FF;
+				top: 0;
+			}
+			
+			#main {
+				margin-top: 300px;
+				border: 2px solid green;
+				position: relative;
+			}
+			
+			#fixedbox {
+				background: yellow;
+				position: fixed;
+				right: 10px;
+				bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>		
+		<div id="main">
+			<div class="sub">
+				Box1
+			</div>
+			
+			<div class="sub box2">
+				Box2
+			</div>
+			
+			<div class="sub">
+				Box3
+			</div>
+		</div>
+		<div id="fixedbox">
+			fixedbox
+		</div>
+	</body>
+</html>

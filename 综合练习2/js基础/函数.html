@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<script type="text/javascript">
+			// 无返回值的方法
+			function add(a, b) {
+				//arguments内置变量存储了参数值列表
+				//console.log(arguments);
+				console.log(a + b);
+			}
+
+			// 有返回值的方法
+			function subtract(a, b) {
+				return a - b;
+			}
+
+			//指定参数默认值,未传参时使用默认值
+			function division(a = 0, b = 1) {
+				return a / b;
+			}
+
+			// 调用方法
+			add(1, 2);
+
+			//传递的参数个数少于函数声明时,参数默认值为undefined, 数值运算后结果为NaN
+			add(1);
+
+			function exec(func, a, b) {
+				console.log(func);
+				func(a, b);
+			}
+
+			// 事件调用函数
+			function callByElement(msg) {
+				alert(msg);
+			}
+
+			//函数也可以作为参数传递,这个叫回调函数 
+			exec(add, 2, 3);
+			exec(subtract, 100, 67);
+			//直接写在参数里时不要带方法名,这个叫匿名函数
+			exec(function(a, b) {
+				console.log(a * b);
+			}, 5, 7);
+
+
+			var dog = { type:"牧羊犬", color:"黑色" };
+			// 匿名函数直接赋值给对象的属性作为对象的方法
+			dog.run = function(){
+				console.log("跑步");
+			}
+
+			// 函数创建自定义对象
+			function person(name, age) {
+				this.name = name;
+				this.age = age;				
+				
+				// 匿名函数也可以直接赋值给对象的属性(实例方法)
+				this.eat = function(food){
+					console.log("%s喜欢吃%s",this.name,food);	
+				}
+				
+				// 函数里也可以写函数. (内部方法)
+				function init(){
+					console.log("对象初始化完成");
+				}
+				//内部函数只能在函数内部调用.
+				init();
+			}	
+			
+			var p = new person("Joey", 18);
+			console.log(p);
+			p.eat("苹果");
+			//外部无法调用内部函数,这里会报错
+			//p.init(); 
+			
+			// 静态方法
+			person.sayHello = function(){
+				console.log("hello!");
+			}
+			//调用静态方法
+			person.sayHello(); 
+			//静态方法不能由对象调用
+			//p.sayHello();
+			
+			
+			// 自调用函数写法1
+			(function(msg){
+				console.log(msg);
+			})("自调用函数写法1");
+			
+			// 自调用函数写法2
+			(function(msg){
+				console.log(msg);
+			}("自调用函数写法2"));
+			
+			// 自调用函数写法3
+			//!号可以替换成!!, +, void操作符
+			!function(msg){
+				console.log(msg);
+			}("自调用函数写法3");
+			
+			
+			// 箭头函数
+			// 只有一个表达式可以省略{} 和 return
+			var plus = (a,b) => a+b; 
+			console.log(plus(5,12));
+			
+		</script>
+
+	</head>
+	<body>
+		<!-- 事件调用函数 -->
+		<button type="button" onclick="callByElement('你点击了测试按钮')">测试</button>
+
+		<script type="text/javascript">
+			// 匿名函数
+			document.body.onload = function() {
+				console.log("文档加载完成。");
+			};
+		</script>
+	</body>
+</html>

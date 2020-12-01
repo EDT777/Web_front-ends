@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.must:before {
+				content: "* ";
+				color: red;
+			}
+			input[type=button] {
+				width: 100px;
+				height: 30px;
+				margin: 5px 0 0 220px;
+			}
+			.error {
+				color:red;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="reg.html" method="get" name="myform">
+			<table>
+				<tr>
+					<td>用户名:</td>
+					<td><input type="text" name="username"></td>
+					<td class="must">3-10位，只能由字母，数字组成</td>
+				</tr>
+				<tr>
+					<td>密码：</td>
+					<td><input type="password"  name="password"/></td>	
+					<td class="must">6-12位，只能由下划线, 字母，数字组成</td>			
+				</tr>
+				<tr>
+					<td>昵称:</td>
+					<td><input type="text" name="nickname"></td>
+					<td class="must">4-10个以内汉字</td>
+				</tr>
+				<tr>
+					<td>Email：</td>
+					<td><input type="text"  name="email"></td>
+					<td>标准邮箱格式(6~18个字符，可使用字母、数字、下划线，需以字母开头)</td>
+				</tr>
+				<tr>
+					<td>手机号码:</td>
+					<td><input type="text" name="phone"></td>
+					<td>11位手机号</td>
+				</tr>
+			</table>
+			<input type="submit" value="提交"/>			
+		</form>
+	</body>	
+</html>

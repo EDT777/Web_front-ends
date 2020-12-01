@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div>:first-child{
+				display: inline;
+				min-width: 80px;
+				float: left;
+			}
+			div>:first-child:before {
+				content: counter(mycounter,disc);
+			}
+			div {
+				margin-bottom: 8px;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="https://www.baidu.com/s" method="get" target="_blank">
+			<div>
+				<label>查询关键字：</label><input type="text" name="wd" />
+			</div>
+			<input type="hidden" name="ie" value="UTF-8"/>
+			<input type="submit" value="查询"/>
+		</form>
+		<form action="https://hooks.zapier.com/hooks/catch/3734059/ooekw5w/" method="post" id="myform" enctype="multipart/form-data">
+			<div>
+				<label>
+					用户名:
+				</label><input type="text" id="username" name="username" placeholder="用户名" />
+			</div>
+			<div>
+				<lable>
+					密码:
+				</lable><input type="password" name="password" placeholder="密码" />
+			</div>
+			<div>
+				<label>
+					性别：
+				</label>
+				<input type="radio" name="sex" id="sex1" value="0" checked="checked" /><label for="sex1">男</label>
+				<input type="radio" name="sex" id="sex2" value="1" /><label for="sex2">女</label>
+			</div>
+			<div>
+				<label>
+					兴趣：
+				</label>
+				<input type="checkbox" name="like" id="like1" value="java" checked="checked" /><label for="like1">JAVA</label>
+				<input type="checkbox" name="like" id="like2" value="cs" /><label for="like2">C#</label>
+				<input type="checkbox" name="like" id="like3" value="others" /><label for="like3">其他</label>
+			</div>
+			<div>
+				<label>
+					省份：
+				</label>
+				<select name="provinces">
+					<option value="0">北京</option>
+					<option value="1">上海</option>
+					<option value="2">广州</option>
+					<option value="3" selected="selected">湖南</option>
+					<option value="4">河北</option>
+				</select>
+			</div>
+			<div>
+				<label>
+					自我介绍：
+				</label>
+				<textarea rows="10" style="width: 100%;"></textarea>
+			</div>
+			<div>
+				<label>
+					头像：
+				</label>
+				<input type="file" name="phone" id="phone" />
+			</div>
+		
+
+			<input type="hidden" name="token" value="ashddadsa1213==" />
+
+			<fieldset id="">
+				<legend>按钮测试区域</legend>
+				<input type="button" name="reg" id="reg" value="注册" onclick="window.location = 'https://reg.taobao.com/member/reg/fill_mobile.htm'" />
+				<input type="button" value="提交" onclick="document.getElementById('myform').submit();" />
+				<input type="button" value="提交" onclick="form.submit();" />
+				<input type="submit" value="提交" />
+				<input type="reset" value="重置" />
+				<input type="image" src="素材/submit.png" width="80px" style="text-align: center;"/>
+			</fieldset>
+
+		</form>
+	</body>
+</html>

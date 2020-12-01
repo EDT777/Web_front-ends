@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Cookie的使用</title>
+		<style type="text/css">
+			input,select,button {
+				margin: 5px;
+			}
+		</style>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+	</head>
+	<body>
+		
+		<p>
+			
+		</p>
+		
+		<p>
+			新增cookie： <br>
+			Name = <input type="text" id="name" value="" />  <br>
+			Value = <input type="text" id="value" value="" /> <br>
+			过期时间:
+			<select name="expires" id="expires">
+				<option value="0" selected>不指定</option>
+				<option value="1">5秒后过期</option>
+				<option value="2">5秒前过期</option>
+				<option value="3">永不过期</option>
+			</select>
+			<br>
+			<button type="button" onclick="add()">新增/修改</button>
+			<button type="button" onclick="remove()">删除</button>
+		</p>
+		
+		<script type="text/javascript">
+			
+			var user = {name: 'joey', age:18};
+			//存储对象
+			document.cookie = 'user=' + JSON.stringify(user);
+			//读取对象
+			function readUserInfo(){
+				if(document.cookie){
+					for(let cookie of document.cookie.split(';')){
+						var index = cookie.indexOf('=');
+						var name = cookie.substr(0,index).trim();
+						var value = cookie.substr(index+1).trim();
+						if(name === 'user') {
+							var u = JSON.parse(value);
+							console.log(JSON.stringify(u));
+						}
+					}
+				}				
+			}
+			readUserInfo();
+			
+			
+			//使用js-cookie插件
+			//7天过期
+			Cookies.set('p', '999',{ expires: 7, path: '/' });
+			//保存对象
+			Cookies.set('fruit', { name:'苹果', price: 18});
+			//读取cookie的值
+			console.log(Cookies.get('p'));
+			//读取所有的cookie,返回一个对象
+			console.log(Cookies.get());
+			//读取对象
+			console.log(Cookies.getJSON('fruit'));
+			//删除cookie
+			Cookies.remove('fruit');
+			document.querySelector('p').innerText = document.cookie;
+			
+			//添加、修改cookie			
+			function add(){
+				var name = document.getElementById('name').value;
+				var value = document.getElementById('value').value;
+				if(!name) return;
+				var expires = document.getElementById('expires').value;
+								
+				var cookie = `${name}=${value};`;
+				if(expires>0) {
+					var date = new Date();
+					switch(parseInt(expires)) {
+						case 1:
+							//5秒后过期
+							date.setTime(date.getTime()+5000);
+							cookie += `expires=${date.toGMTString()};`;
+							break;
+						case 2:
+							//5秒前过期,立即删除
+							date.setTime(date.getTime()-5000);
+							cookie += `expires=${date.toGMTString()};`;
+							break;
+						case 3:
+							//永不过期
+							date = new Date(2099,11,31,23,59,59);
+							cookie += `expires=${date.toGMTString()};`;
+						break;
+					}
+				}
+				document.cookie = cookie;
+				document.querySelector('p').innerText = document.cookie;
+			}
+			
+			//删除cookie
+			function remove(){
+				var name = document.getElementById('name').value;
+				if(!name) return;
+				var date = new Date();
+				date.setTime(date.getTime()-1);
+				document.cookie = `${name}=;expires=${date.toGMTString()}`;
+				document.querySelector('p').innerText = document.cookie;
+			}
+			
+			
+		</script>
+	</body>
+</html>

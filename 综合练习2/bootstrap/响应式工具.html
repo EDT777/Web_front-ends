@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Bootstrap模板</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<!--[if lt IE 9]>
+		  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+		  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+		<![endif]-->
+		
+		<style type="text/css">
+			p {
+				margin: 20px;
+				font-size: 24px;
+			}
+			h1,
+			h2,
+			h3 {
+				display: none;
+			}
+			#imgcontainer img {
+				max-width: 300px;
+				height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		
+
+		<div class="container">
+			<p></p>
+			
+			<!-- 根据不同的屏幕显示不同的内容 -->
+			<h1 class="visible-lg">大屏</h1>
+			<h1 class="visible-md">中屏</h1>
+			<h1 class="visible-sm">小屏</h1>
+			<h1 class="visible-xs">超小屏</h1>
+			
+			<!-- 小屏和超小屏隐藏 -->
+			<img src="http://10.url.cn/eth/ajNVdqHZLLBXzibxGcpMTiaxsgNFPyODxXxujUjO9SdZOMZwtxWWvibEKeTw60otruHEVT6tA9sanU/" class="hidden-xs hidden-sm">
+			
+			
+			<div id="imgcontainer">
+				<img class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2471845590,913308006&fm=26&gp=0.jpg"><img
+				 class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1402993353,911038408&fm=26&gp=0.jpg"><img
+				 class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2595508360,28762262&fm=26&gp=0.jpg"><img
+				 class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=55649405,1452350630&fm=26&gp=0.jpg"><img
+				 class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2929314891,994527773&fm=26&gp=0.jpg"><img
+				 class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1453740791,1230975872&fm=26&gp=0.jpg"><img
+				 class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1736000107,2715820772&fm=26&gp=0.jpg"><img
+				 class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3446288830,2266135693&fm=26&gp=0.jpg"><img
+				 class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3927438817,1254787657&fm=26&gp=0.jpg"><img
+				 class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1339666375,2292680893&fm=26&gp=0.jpg"><img
+				 class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3586084574,2971348994&fm=26&gp=0.jpg"><img
+				 class="visible-xs-block visible-sm-inline visible-md-inline visible-lg-inline" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1470490104,2211978623&fm=26&gp=0.jpg">
+			</div>
+			
+			
+		</div>
+
+
+
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				$(window).resize(getSize)
+
+				function getSize() {
+					$('p').text(`屏幕宽度: ${window.innerWidth} px`);
+				};
+				getSize();
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>H5新增表单属性</title>
+	</head>
+	<body>
+		
+		<form action="https://hooks.zapier.com/hooks/catch/3734059/ooekw5w/" method="post" id="myform" autocomplete="on"  >
+			用户名：<input type="text" name="username" autofocus="autofocus" placeholder="请输入用户名"/> <br>
+			邮箱： <input type="email" name="email" required multiple> <br>
+			<input type="file" name="file" id="file" multiple="multiple" /> <br>
+			年龄：<input type="text" name="age" pattern="^[0-9]{1,2}$" title="请输入0-99之间的数字" required="required" /> <br>
+			<input type="submit" value="提交"/>
+			<input type="submit" value="提交到百度" formaction="https://www.baidu.com/s" formmethod="get" /> <br>
+		</form>
+		
+		手机验证码：
+		<input type="text" name="code" form="myform"/>
+		
+		
+		<form action="" method="post">
+			
+			<input type="email" formnovalidate="formnovalidate" />
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>

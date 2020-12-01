@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>-->
+		<!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+		<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+		<title>
+			栅格系统示例
+		</title>
+		<style>
+			p {
+				margin: 20px;
+				font-size: 24px;
+			}
+			
+			div[class^='col-'] {
+				margin-bottom: 5px;
+			}
+			
+			div[class^='col-']:nth-child(2n) {
+				background: lightgreen;
+			}
+			div[class^='col-']:nth-child(2n + 1) {
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container border">
+			<div class="row border">
+				<div class="col-sm-1">
+					sm1
+				</div>
+				<div class="col-sm-2">
+					sm2
+				</div>
+				<div class="col-sm-3">
+					sm3
+				</div>
+				<div class="col-sm-6">
+					sm4
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-2 col-sm-4 col-lg-1">
+					xs2/sm4/lg1
+				</div>
+				<div class="col-xs-2 col-sm-7 col-lg-2">
+					xs3/sm7/lg2
+				</div>
+				<div class="col-xs-8 col-sm-1 col-lg-9">
+					xs8/sm1/lg9
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-2">
+					sm2
+				</div>
+				<div class="col-xs-8 col-xs-offset-2">
+					sm8(偏移2)
+				</div>
+				
+			</div>
+			
+			<p></p>
+		</div>
+		
+		
+
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function(){
+				$(window).resize(getSize)
+				function getSize(){
+					$('p').text(`屏幕宽度: ${window.innerWidth} px`);
+				};
+				getSize();
+			})
+		</script>
+	</body>
+</html>

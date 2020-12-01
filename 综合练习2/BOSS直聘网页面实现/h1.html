@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="Description" content="jQuery动画作业-雪花效果"/>
+		<meta name="Keywords" content="章鱼教育- 全栈工程师课程"/>
+		<title></title>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				setInterval(function(){				
+					
+					$('body').append(function(){
+						
+						//随机初始位置
+						// var left = document.body.clientWidth*Math.random();
+						var left = screen.width*Math.random();
+						var top = -30;
+						//下落点随机偏移
+						var endLeft = left + Math.random()*500 - 250; //-250 - +250
+						var endTop = screen.height + 20;
+						//随机大小和透明度	
+						var zoom = (Math.random()*5 + 5)/10; //0.5-1倍
+						var opacity = (Math.random()*5 + 5)/10; //0.5-1倍
+						//随机速度(时长)
+						var delay = 1000*(Math.random()*3+12); //12-15秒
+						
+						return $('<div class="snow"></div>')
+						.css({
+							left : left,
+							top:top,
+							transform: `scale(${zoom})`,
+							opacity: opacity
+						})
+						.animate({
+							left : endLeft,
+							top: endTop
+						},delay, function(){
+							$(this).remove();
+						});
+					});					
+				},100);
+				
+			})
+		</script>
+		<style type="text/css">
+			html,body{
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+				overflow: hidden;
+			}
+			body {
+				background: lightblue;
+			}
+			
+			.snow {
+				width: 20px;
+				height: 20px;
+				background: white;
+				border-radius: 50%;
+				box-shadow: 0px 0px 20px white;
+				/* transform: scale(3); */
+				position: absolute;
+				left: 100px;
+				top:100px;
+			}
+		</style>
+	</head>
+	<body>
+
+	</body>
+</html>

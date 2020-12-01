@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>a标签支持协议</title>
+	</head>
+	<body>
+		<!-- file文件协议 -->
+		<!-- 浏览器安全限制，该协议无法在服务器上运行 -->
+		<a href="file:///D:\work\全栈工程师\02 HTML标签\素材\readme.txt" target="_blank">read me</a>
+		<br>
+		<!-- a标签支持mailto协议，Chrome需要设置，IE测试通过 -->
+		<a href="mailto:2057388734@qq.com?subject=test&cc=sample@hotmail.com&body=use mailto sample">mail to me</a>
+		<br>
+		<!-- tel协议 需要在手机端才能工作 -->
+		<a href="tel:123456789">call me</a>
+		<br>
+		<!-- tencent协议 -->
+		<a href="tencent://message/?uin=2057388734&Site=&Menu-=yes">联系客服</a>
+		<br>
+		<!-- magnet协议 -->
+		<a href="magnet:?xt=urn:btih:26RFUAPEZYGBAAXXNHJ7CZ3G42LTHVNI">磁力下载</a>	
+		<br>
+		<!-- thunder迅雷协议 -->
+		<a href="thunder:\\xxxx">迅雷下载</a>	
+		<br>
+		<!-- FTP协议 -->
+		<a href="ftp://xxxxxx">FTP下载</a>
+		<br>
+		<a href="javascript:void(0);">do nothing</a>
+		<br>
+		<a href="javascript:alert('hello!');">say hello</a>
+		<br>
+	</body>
+</html>

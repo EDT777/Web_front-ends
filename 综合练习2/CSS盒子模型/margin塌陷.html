@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>margin塌陷</title>
+		
+		<style type="text/css">
+			body {
+				margin: 0px;
+				background: yellow;
+			}
+			
+			#parent {
+				background: red;
+				height: 300px;
+				width: 300px;
+				margin: 100px;
+				/* 给父元素添加边框,不推荐 */
+				/* border: 1px solid transparent; */
+				/* 使用定位 */
+				/* position: absolute; */
+			}
+			
+			#son {
+				background: blue;
+				width: 100px;
+				height: 100px;
+				margin: 100px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<div id="parent">
+			<div id="son">
+				
+			</div>
+		</div>
+		
+	</body>
+</html>

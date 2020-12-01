@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//创建 XMLHttpRequest
+			function getXmlHttp() {
+				var xmlhttp;
+				if (window.XMLHttpRequest) {
+					//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+					xmlhttp = new XMLHttpRequest();
+				} else {
+					// IE6, IE5 浏览器执行代码
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				//设置超时时间
+				xmlhttp.timeout = 10 * 1000;
+				return xmlhttp;
+			}
+
+			//创建 XMLHttpRequest
+			var xmlhttp = getXmlHttp();
+
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
+						//document.getElementById("result").innerText = xmlhttp.responseText;
+						parseJson(xmlhttp.responseText);
+					} else {
+						document.getElementById("result").innerHTML = xmlhttp.responseText;
+					}
+				}
+			}
+			
+			
+			function parseJson(text){
+				var json = JSON.parse(text);
+				// document.getElementById("result").innerHTML = `${json.data.city}今天温度为${json.data.wendu}℃, <br/>温馨提示：${json.data.ganmao}`;
+				
+				document.getElementById("result").innerHTML  = `${json.data.city}今天最高温度为${json.data.forecast[0].high}, 最低温度为${json.data.forecast[0].low},
+				<br/>温馨提示：${json.data.ganmao}`;
+			}
+			
+
+			function search() {
+				var city = document.getElementById('city').value;
+				if (city) {
+					//规定请求的类型、URL 以及是否异步处理请求。
+					xmlhttp.open('GET', "http://wthrcdn.etouch.cn/weather_mini?city=", true);
+					
+					//json
+					//http://wthrcdn.etouch.cn/weather_mini?city=
+					//xml
+					//http://wthrcdn.etouch.cn/WeatherApi?city=沈阳
+					
+					//将请求发送到服务器。
+					xmlhttp.send();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="searchbar">
+			<label>
+				查询城市： <input type="text" id="city" value="长沙" />
+			</label>
+			<input type="button" onclick="search()" value="查询天气"/>
+		</div>
+		<div id="result">
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>sessionStorage的使用</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			if (!window.sessionStorage) {
+				alert("浏览器不支持sessionStorage");
+			} else {
+				//主逻辑业务
+
+				//保存数据/修改数据				
+				sessionStorage['x1'] = 1;
+				sessionStorage.x2 = '2';
+				//sessionStorage.setItem('x3', { name:'joey', age: 20 });
+				sessionStorage.setItem('x3', JSON.stringify({
+					name: 'joey',
+					age: 20
+				})); //推荐
+
+				//读取数据
+				console.log(sessionStorage.x2);
+				console.log(sessionStorage.getItem('x3'));
+				var person = JSON.parse(sessionStorage.getItem('x3'));
+				console.log(person);
+				
+				//遍历
+				for (let i = 0; i < sessionStorage.length; i++) {
+					let key = sessionStorage.key(i);
+					let value = sessionStorage.getItem(key);
+					console.log(`${key} = ${value}`);
+				}
+				
+				//删除数据
+				//sessionStorage.removeItem('x1');	
+				//清空
+				//sessionStorage.clear();
+			
+								
+			}
+		</script>
+	</body>
+</html>

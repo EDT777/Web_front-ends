@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var reg = new RegExp('apple', 'i');
+			
+			console.log(reg);
+			console.log(typeof(reg));
+			
+			//perl风格
+			reg = /apple/g;
+			var str = 'appleappleappleapple';
+			console.log(reg.exec(str));
+			console.log(reg.test(str));
+			console.log(str.match(reg));
+			
+			
+			//分组匹配
+			var str = 'i am 18 years old';
+			console.log(/[0123456789]/.exec(str));
+			//重复匹配
+			console.log(/[0123456789]+/.exec(str));
+			//范围匹配
+			console.log(/[0-9]+/.exec(str));
+			//取非匹配
+			console.log(str.match(/[^0-9]+/g));	
+			//切割		
+			console.log(str.split(/[0-9\s]+/g));
+			//边界匹配
+			console.log(str.match(/\b[^0-9\s]+?\b/g));	
+			//特殊字符
+			console.log(str.split(/[\d\s]+/g));
+			console.log(str.match(/[\w]+/g));
+			
+			//要求匹配出所有的a标签及中间内容
+			str = `<a>链接1</a><a>链接2</a>`;
+			//贪婪模式, 过度匹配
+			//当使用贪婪模式的时候，”.*”会最大程度地进行字符匹配
+			console.log(str.match(/<a>.*<\/a>/gm));
+			//惰性模式
+			console.log(str.match(/<a>.*?<\/a>/gm));
+		
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

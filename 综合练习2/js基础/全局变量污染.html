@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/js1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/js2.js" type="text/javascript" charset="utf-8"></script>
+		
+		
+		<script type="text/javascript">
+			//本想打印圆周长,但是实际不是
+			//全局变量污染
+			console.log(r); 
+			
+			//全局方法也会被污染
+			print();
+			
+			//打印全局变量
+			console.log(globle.r);
+			globle.print();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

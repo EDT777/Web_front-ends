@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery过滤器</title>
+		<script src="./js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				///////基本过滤器//////
+
+				//标题标签
+				$(':header').css('background', 'lightblue');
+
+				//奇数行变色
+				//$('tr:odd').css('background', '#e3e3e3');
+
+				//全选/全不选
+				$('form div:first input:checkbox:first').change(function() {
+					//$('form input[type=checkbox]:gt(0)').prop('checked', this.checked);
+					if (this.checked) {
+						$('form div:first input:checkbox:not(:checked)').prop('checked', true);
+					} else {
+						$('form div:first input:checkbox:checked').prop('checked', false);
+					}
+				});
+
+				//////内容过滤器//////
+				//找茬游戏
+				//初始化
+				let n = Math.floor(100 * Math.random());
+				for (let i = 0; i < 100; i++) {
+					if (i == n) {
+						$('#game').append('<div>太</div>')
+					} else {
+						$('#game').append('<div>大</div>')
+					}
+				}
+				//显示答案
+				$('#game button:first').click(function() {
+					$('#game div:contains("太")').css('background', 'pink');
+				});
+				
+				//匹配无文本或子元素的td元素
+				$('table td:empty').text('-').css('color', 'red').css('font-weight', 'bold'); //链式写法
+				//匹配有文本或子元素的td元素
+		//		$('table td:parent').css('font-size', '14px');
+
+				///////子元素过滤器/////////
+				$('table tr:nth-child(1)').css('font-size','24px');
+				//$('table tr:nth-child(odd)').css('background','#e3e3e3');
+				$('table tr:nth-child(2n+1)').css('background','#e3e3e3'); //表达式
+				//所有的第一个td子元素
+				$('table td:first-child').css('background','#e3e3e3');
+				
+				
+				/////表单过滤器//////
+			});
+		</script>
+		<style type="text/css">
+			form {
+				margin: 10px;
+			}
+
+			input {
+				margin-top: 10px;
+			}
+
+			#game {
+				width: 220px;
+				height: auto;
+				margin: 20px;
+			}
+
+			#game>div {
+				width: 20px;
+				border: 1px solid lightblue;
+				text-align: center;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>jQuery基础教程</h1>
+		<h2>选择器与过滤器</h2>
+
+		<h3>2016年里约热内卢奥运会奖牌榜</h3>
+		<table width="100%">
+			<thead>
+				<tr>
+					<th>排名</th>
+					<th>国家/地区</th>
+					<th>金牌</th>
+					<th>银牌</th>
+					<th>铜牌</th>
+					<th>总数</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td><a target="_blank" href="/item/%E7%BE%8E%E5%9B%BD">美国</a></td>
+					<td><a target="_blank" href="/item/46">46</a></td>
+					<td><a target="_blank" href="/item/37">37</a></td>
+					<td><a target="_blank" href="/item/38">38</a></td>
+					<td><a target="_blank" href="/item/121">121</a></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td><a target="_blank" href="/item/%E8%8B%B1%E5%9B%BD">英国</a></td>
+					<td><a target="_blank" href="/item/27">27</a></td>
+					<td><a target="_blank" href="/item/23">23</a></td>
+					<td><a target="_blank" href="/item/17">17</a></td>
+					<td><a target="_blank" href="/item/67">67</a></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td><a target="_blank" href="/item/%E4%B8%AD%E5%9B%BD">中国</a></td>
+					<td><a target="_blank" href="/item/26">26</a></td>
+					<td><a target="_blank" href="/item/18">18</a></td>
+					<td><a target="_blank" href="/item/26">26</a></td>
+					<td><a target="_blank" href="/item/70">70</a></td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td><a target="_blank" href="/item/%E4%BF%84%E7%BD%97%E6%96%AF">俄罗斯</a></td>
+					<td><a target="_blank" href="/item/19">19</a></td>
+					<td><a target="_blank" href="/item/18">18</a></td>
+					<td><a target="_blank" href="/item/19">19</a></td>
+					<td><a target="_blank" href="/item/56">56</a></td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td><a target="_blank" href="/item/%E5%BE%B7%E5%9B%BD">德国</a></td>
+					<td><a target="_blank" href="/item/17">17</a></td>
+					<td><a target="_blank" href="/item/10">10</a></td>
+					<td><a target="_blank" href="/item/15">15</a></td>
+					<td><a target="_blank" href="/item/42">42</a></td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td><a target="_blank" href="/item/%E6%97%A5%E6%9C%AC">日本</a></td>
+					<td><a target="_blank" href="/item/12">12</a></td>
+					<td><a target="_blank" href="/item/8">8</a></td>
+					<td><a target="_blank" href="/item/21">21</a></td>
+					<td><a target="_blank" href="/item/41">41</a></td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td><a target="_blank" href="/item/%E6%B3%95%E5%9B%BD">法国</a></td>
+					<td><a target="_blank" href="/item/10">10</a></td>
+					<td><a target="_blank" href="/item/18">18</a></td>
+					<td><a target="_blank" href="/item/14">14</a></td>
+					<td><a target="_blank" href="/item/42">42</a></td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td><a target="_blank" href="/item/%E9%9F%A9%E5%9B%BD">韩国</a></td>
+					<td><a target="_blank" href="/item/9">9</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/9">9</a></td>
+					<td><a target="_blank" href="/item/21">21</a></td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td><a target="_blank" href="/item/%E6%84%8F%E5%A4%A7%E5%88%A9">意大利</a></td>
+					<td><a target="_blank" href="/item/8">8</a></td>
+					<td><a target="_blank" href="/item/12">12</a></td>
+					<td><a target="_blank" href="/item/8">8</a></td>
+					<td><a target="_blank" href="/item/28">28</a></td>
+				</tr>
+				<tr>
+					<td>10</td>
+					<td><a target="_blank" href="/item/%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A">澳大利亚</a></td>
+					<td><a target="_blank" href="/item/8">8</a></td>
+					<td><a target="_blank" href="/item/11">11</a></td>
+					<td><a target="_blank" href="/item/10">10</a></td>
+					<td><a target="_blank" href="/item/29">29</a></td>
+				</tr>
+				<tr>
+					<td>11</td>
+					<td><a target="_blank" href="/item/%E8%8D%B7%E5%85%B0">荷兰</a></td>
+					<td><a target="_blank" href="/item/8">8</a></td>
+					<td><a target="_blank" href="/item/7">7</a></td>
+					<td><a target="_blank" href="/item/4">4</a></td>
+					<td><a target="_blank" href="/item/19">19</a></td>
+				</tr>
+				<tr>
+					<td>12</td>
+					<td><a target="_blank" href="/item/%E5%8C%88%E7%89%99%E5%88%A9">匈牙利</a></td>
+					<td><a target="_blank" href="/item/8">8</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/4">4</a></td>
+					<td><a target="_blank" href="/item/15">15</a></td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td><a target="_blank" href="/item/%E5%B7%B4%E8%A5%BF">巴西</a></td>
+					<td><a target="_blank" href="/item/7">7</a></td>
+					<td><a target="_blank" href="/item/6">6</a></td>
+					<td><a target="_blank" href="/item/6">6</a></td>
+					<td><a target="_blank" href="/item/19">19</a></td>
+				</tr>
+				<tr>
+					<td>14</td>
+					<td><a target="_blank" href="/item/%E8%A5%BF%E7%8F%AD%E7%89%99">西班牙</a></td>
+					<td><a target="_blank" href="/item/7">7</a></td>
+					<td><a target="_blank" href="/item/4">4</a></td>
+					<td><a target="_blank" href="/item/6">6</a></td>
+					<td><a target="_blank" href="/item/17">17</a></td>
+				</tr>
+				<tr>
+					<td>15</td>
+					<td><a target="_blank" href="/item/%E8%82%AF%E5%B0%BC%E4%BA%9A">肯尼亚</a></td>
+					<td><a target="_blank" href="/item/6">6</a></td>
+					<td><a target="_blank" href="/item/6">6</a></td>
+					<td><a target="_blank" href="/item/1">1</a></td>
+					<td><a target="_blank" href="/item/13">13</a></td>
+				</tr>
+				<tr>
+					<td>16</td>
+					<td><a target="_blank" href="/item/%E7%89%99%E4%B9%B0%E5%8A%A0">牙买加</a></td>
+					<td><a target="_blank" href="/item/6">6</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/11">11</a></td>
+				</tr>
+				<tr>
+					<td>17</td>
+					<td><a target="_blank" href="/item/%E5%85%8B%E7%BD%97%E5%9C%B0%E4%BA%9A">克罗地亚</a></td>
+					<td><a target="_blank" href="/item/5">5</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/10">10</a></td>
+				</tr>
+				<tr>
+					<td>18</td>
+					<td><a target="_blank" href="/item/%E5%8F%A4%E5%B7%B4">古巴</a></td>
+					<td><a target="_blank" href="/item/5">5</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/4">4</a></td>
+					<td><a target="_blank" href="/item/11">11</a></td>
+				</tr>
+				<tr>
+					<td>19</td>
+					<td><a target="_blank" href="/item/%E6%96%B0%E8%A5%BF%E5%85%B0">新西兰</a></td>
+					<td><a target="_blank" href="/item/4">4</a></td>
+					<td><a target="_blank" href="/item/9">9</a></td>
+					<td><a target="_blank" href="/item/5">5</a></td>
+					<td><a target="_blank" href="/item/18">18</a></td>
+				</tr>
+				<tr>
+					<td>20</td>
+					<td><a target="_blank" href="/item/%E5%8A%A0%E6%8B%BF%E5%A4%A7">加拿大</a></td>
+					<td><a target="_blank" href="/item/4">4</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/15">15</a></td>
+					<td><a target="_blank" href="/item/22">22</a></td>
+				</tr>
+				<tr>
+					<td>21</td>
+					<td><a target="_blank" href="/item/%E4%B9%8C%E5%85%B9%E5%88%AB%E5%85%8B%E6%96%AF%E5%9D%A6">乌兹别克斯坦</a></td>
+					<td><a target="_blank" href="/item/4">4</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/7">7</a></td>
+					<td><a target="_blank" href="/item/13">13</a></td>
+				</tr>
+				<tr>
+					<td>22</td>
+					<td><a target="_blank" href="/item/%E5%93%88%E8%90%A8%E5%85%8B%E6%96%AF%E5%9D%A6">哈萨克斯坦</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/5">5</a></td>
+					<td><a target="_blank" href="/item/9">9</a></td>
+					<td><a target="_blank" href="/item/17">17</a></td>
+				</tr>
+				<tr>
+					<td>23</td>
+					<td><a target="_blank" href="/item/%E5%93%A5%E4%BC%A6%E6%AF%94%E4%BA%9A">哥伦比亚</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/8">8</a></td>
+				</tr>
+				<tr>
+					<td>24</td>
+					<td><a target="_blank" href="/item/%E7%91%9E%E5%A3%AB">瑞士</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/7">7</a></td>
+				</tr>
+				<tr>
+					<td>25</td>
+					<td><a target="_blank" href="/item/%E4%BC%8A%E6%9C%97">伊朗</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/1">1</a></td>
+					<td><a target="_blank" href="/item/4">4</a></td>
+					<td><a target="_blank" href="/item/8">8</a></td>
+				</tr>
+				<tr>
+					<td>26</td>
+					<td><a target="_blank" href="/item/%E5%B8%8C%E8%85%8A">希腊</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/1">1</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/6">6</a></td>
+				</tr>
+				<tr>
+					<td>27</td>
+					<td><a target="_blank" href="/item/%E9%98%BF%E6%A0%B9%E5%BB%B7">阿根廷</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/1">1</a></td>
+					<td></td>
+					<td><a target="_blank" href="/item/4">4</a></td>
+				</tr>
+				<tr>
+					<td>28</td>
+					<td><a target="_blank" href="/item/%E4%B8%B9%E9%BA%A6">丹麦</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/6">6</a></td>
+					<td><a target="_blank" href="/item/7">7</a></td>
+					<td><a target="_blank" href="/item/15">15</a></td>
+				</tr>
+				<tr>
+					<td>29</td>
+					<td><a target="_blank" href="/item/%E7%91%9E%E5%85%B8">瑞典</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/6">6</a></td>
+					<td><a target="_blank" href="/item/3">3</a></td>
+					<td><a target="_blank" href="/item/11">11</a></td>
+				</tr>
+				<tr>
+					<td>30</td>
+					<td><a target="_blank" href="/item/%E5%8D%97%E9%9D%9E">南非</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/6">6</a></td>
+					<td><a target="_blank" href="/item/2">2</a></td>
+					<td><a target="_blank" href="/item/10">10</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<form action="" method="post">
+
+			<div>
+				擅长：
+				<label><input type="checkbox" />全选</label>
+				<br>
+				<lable><input type="checkbox" name="lang" value="0" />JAVA</lable>
+				<lable><input type="checkbox" name="lang" value="1" />C#</lable>
+				<lable><input type="checkbox" name="lang" value="2" />Python</lable>
+				<lable><input type="checkbox" name="lang" value="3" />PHP</lable>
+			</div>
+
+			<br>
+			<input type="submit" value="提交" />
+		</form>
+
+		<div id="game">
+			大家来找茬：<button type="button">答案</button><br>
+		</div>
+
+	</body>
+</html>

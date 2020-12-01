@@ -1,0 +1,105 @@
+/* 清除浏览器默认样式 */
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+/* 设置html和body的宽度和高度,以便给后代元素提供参考 */
+html,body {
+	height: 100%;
+	width: 100%;
+}
+
+/* 主容器 */
+#container {
+	background-image: url(../img/bg.jpg);
+	width: 100%;
+	height: 100%;
+	/* 保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小 */
+	background-size: cover;
+	position: relative;
+	padding-top: 100px;
+}
+
+/* 页脚 */
+#footer {
+	position: fixed;
+	bottom: 5px;
+	width: 100%;
+	text-align: center;
+}
+
+/* 主面板 */
+#main {
+	min-height: 600px;
+	min-width: 800px;
+	max-width: 1000px;
+	height: 80%;
+	background: lightblue;
+	margin: 0 auto;
+	
+	/* 设置弹性容器 */
+	display: flex;
+	flex-direction: row;
+}
+
+/* 视口高度小于800px时,隐藏页脚,主面板占满视口 */
+@media screen and (max-height: 800px) {
+	#footer {
+		visibility: collapse;
+	}
+	#main {
+		height: 100%;
+	}
+	#container {
+		padding-top: 0px;
+	}
+}
+
+/* 主窗口左边部分 */
+#left {
+	width: 280px;
+	display: flex;
+	/* 弹性布局变为纵向排列 */
+	flex-direction: column;
+}
+
+/* 主窗口右边部分 */
+#right {
+	flex: 1;
+	background: lightgreen;
+}
+
+/* 个人信息功能区 */
+#myinfo {
+	height: 76px;
+}
+
+/* 搜索栏 */
+#searchbar {
+	height: 40px;
+}
+
+/* 聊天/通讯录按钮区 */
+#navbutton {
+	height: 39px;
+}
+
+/* 聊天列表区 */
+#chatlist {
+	flex: 1;
+	overflow: hidden;
+}
+
+
+
+/* 附加功能按钮 */
+#optlist {
+	float: right;
+	width: 30px;
+	height: 30px;
+	margin: 18px;
+	background-image: url(../img/resources.png);
+	background-position: -434px -398px;
+	cursor: pointer;
+}

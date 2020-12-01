@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button" onclick="test()">测试</button>
+		
+		<script type="text/javascript">
+			
+			function test(){
+				//打开数据库
+				var db = openDatabase("TestDB", "1.0", "测试数据库", 2 * 1024 * 1024);
+				
+				//创建表
+				db.transaction(function(tx) {
+					tx.executeSql('CREATE TABLE IF NOT EXISTS UserName(id unique,Name)');
+				});
+				
+				//插入数据
+				db.transaction(function(tx) {
+					tx.executeSql('INSERT INTO UserName(id,name) VALUES(1,"张三")');
+					tx.executeSql('INSERT INTO UserName(id,name) VALUES(2,"李四")');
+				});
+				
+				// 查询
+				db.transaction(function(tx) {
+							tx.executeSql('SELECT * FROM UserName', [], function(tx, results) {
+									var len = results.rows.length;
+									for (var i = 0; i < len; i++) {
+										console.log(results.rows.item(i).Name);
+									}}, null);
+							});
+			}
+			
+		</script>
+	</body>
+</html>

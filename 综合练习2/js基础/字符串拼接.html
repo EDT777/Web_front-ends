@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		
+	</head>
+	<body>
+<script type="text/javascript">
+			var str = '<form action="" method="post">' + '<input type="submit" value="提交"/>' + '</form>';
+
+			str = '<form action="" method="post">\
+			<input type="submit" value="提交"/>\
+			</form>';
+
+			var arr = ['<form action="" method="post">',
+				'<input type="submit" value="提交"/>',
+				'</form>'
+			];
+			str = arr.join("");
+
+			str ="abc".concat("123");
+
+
+			//字符串模板
+			//注意下面会把隔行的前面的空白字符也拼接进去
+			str = `白日依山尽
+				  黄河入海流`;
+			//打印对象属性
+			var person = {
+				name: 'Joey',
+				age: 18
+			};
+			var city = '长沙'
+			str = `我是${person.name},今年${person.age}岁,我是${city}人`;
+			//使用表达式或者函数
+			var x = 2,
+				y = 10;
+			str = `${x} + ${y} = ${x+y}`;
+			str = `${x}的${y}次方是:${Math.pow(x,y)}`;
+
+			var fruits = [
+				{
+					name: '苹果',
+					price: 5
+				},
+				{
+					name: '香蕉',
+					price: 4
+				},
+				{
+					name: '葡萄',
+					price: 8
+				},
+				{
+					name: '哈密瓜',
+					price: 12
+				},
+			];
+
+			str = `<table><tr><th>名称</th><th>价格</th></tr>
+				${fruits.map(function(e){
+					return `<tr><td>${e.name}</td><td>${e.price}</td></tr>`
+				}).join("")}
+			</table>`;
+
+			document.body.innerHTML = str;
+			console.log(str);
+		</script>
+	</body>
+</html>

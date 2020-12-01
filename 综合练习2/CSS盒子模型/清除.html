@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			#parent {
+				border: 1px purple solid;
+				background-color: lightgray;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			div ul li {
+				float: left;
+				width: 100px;
+				height: 40px;
+				background-color: red;
+			}
+
+			.clear{
+				clear:both;
+			} 
+			.clarefix {
+				/* 设置对象的缩放比例,用来兼容IE6/7 */
+				zoom: 1;
+			}
+			.clarefix:after {
+				content: '.';
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: collapse;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="parent" class="clarefix">
+			<ul>
+				<li>python</li>
+				<li>web</li>
+				<li>linux</li>
+			</ul>
+			<!-- <div class="clear"></div> -->
+		</div>
+	</body>
+</html>

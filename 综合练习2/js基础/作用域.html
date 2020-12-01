@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			//全局变量
+			var a = 10;
+			
+		</script>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			// 全局变量
+			var b = "hello";
+			
+			!function() {
+				console.log(a);
+				console.log(b);
+				
+				//局部变量
+				var c = 11;				
+				
+				// 变量d未声明过,报错
+				//console.log(d);
+				
+				// 对未声明过的c直接赋值,会提升为全局变量
+				d = 50;			
+					
+				!function(){
+					//内部函数的局部变量
+					var e = 100;
+					// 内部函数可以访问外层的局部变量
+					console.log(c)
+				}
+				//无法内部函数的局部变量
+				//console.log(e)				
+				
+				
+				for(var i = 0; i<10; i++){
+					//do somethine
+				}
+				//var 定义的要么是全局,要么是局部.局部变量在函数内都可以用.
+				console.log(i);
+				
+				for(let j = 0; j<10; j++){
+					//do somethine
+				}
+				//let定义的变量只在代码块内可以访问
+				//console.log(j);
+				
+				
+			}();
+			
+			!function (){
+				console.log(d);
+			}();
+			
+			
+		</script>
+		
+		
+		<script type="text/javascript">
+			function game(){
+				var count = 0;
+				
+				//闭包函数
+				function add(){
+					count++;
+					return count;
+				}
+				
+				
+				return add;
+			}
+			
+			addfunc = game();
+			var i = addfunc();
+			//变量的值始终保持在内存中,不会被清除
+			console.log("count=%s",i);
+			i = addfunc();
+			console.log("count=%s",i);
+			i = addfunc();
+			console.log("count=%s",i);
+			
+			//删除全局变量,
+			delete addfunc;
+			// addfunc被删除,无法调用
+			//console.log(addfunc);
+			
+			//不能删除var定义的变量
+			console.log(delete i);
+			
+			//删除对象的属性
+			var o = { name:"test", id:1 };
+			delete o.name;
+			console.log(o)
+			
+		</script>
+	</body>
+</html>

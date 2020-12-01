@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				text-align: center;
+				line-height: 200px;
+			}
+		</style>
+		<script src="./js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				function test(){
+					this.style.fontSize = '48px';
+				}
+				//绑定事件
+				$('#div1').bind('click', function(){
+					this.style.color = 'red';
+				});
+				$('#div1').bind('click', test);
+				//解除绑定
+				$('#div1').unbind('click', test);
+				//绑定多个事件
+				$('#div1').bind(
+					{
+						mouseenter : function(){
+							this.innerText = 'mouseenter';
+						},
+						mouseleave: function(){
+							this.innerText = 'mouselive';
+						}
+					}					
+				);
+
+				//使用原生js绑定事件
+				// var btn1 = document.getElementById('btn1');
+				// if (btn1) {
+				// 	if (window.addEventListener) {
+				// 		btn1.addEventListener('click', function() {
+				// 			console.log(1);
+				// 		});
+				// 	}else{
+				// 		//在IE8以及其以下版本中用 
+				// 		btn1.attachEvent('onclick', function(){
+				// 			console.log(1);
+				// 		}) 
+				// 	}
+				// }
+
+				//使用jquery绑定事件
+				function show(){
+					alert(this.innerText);
+				}
+				$('#btn1').on('click',show);
+				
+				//使用jquery绑定事件,使用后代选择以及传递数据
+				$('body').on('click', '[name="btn2"]', '测试2', function(e){
+					alert(e.data);
+				});
+				
+				
+				$('#btn3').on('click',function(){
+					//解除绑定
+					$('#btn1').off('click',show);
+				});
+				
+				$('#btn4').on('click',function(){
+					//添加绑定
+					//注意如果点击多次,会添加多个事件绑定
+					$('#btn1').on('click',show);
+				});
+				
+				
+				//不会选择绑定事件之后动态添加的元素
+				$('p').on('mouseenter', function(){
+					this.style.color = 'red';
+				});
+				
+				//使用后代选择器可以动态绑定元素
+				$('body').on('mouseenter','p', function(){
+					this.style.color = 'red';
+				});
+				
+				//添加新元素
+				$('#btn5').on('click',function(){
+					$('body').append('<p>新段落</p>')
+				});
+				
+				//绑定多个事件
+				$('#div2').on(
+					{
+						mouseenter : function(){
+							this.innerText = 'mouseenter';
+						},
+						mouseleave: function(){
+							this.innerText = 'mouselive';
+						}
+					}					
+				);
+				
+				
+				$('form').on('click','input[type=submit]',function(e){
+					console.log(e);
+					//触发自定义事件
+					$('#username').trigger('checkdata', [10,20]);
+					//取消元素的默认动作
+					e.preventDefault();
+				});
+				
+				//绑定自定义事件
+				$('#username').on('checkdata',function(e, num1,num2){
+					console.log(num1);
+					console.log(num2);
+				});
+
+			});
+		</script>
+	</head>
+	<body>
+		
+		<div id="div1">
+			div1
+		</div>
+		<div id="div2">
+			div2
+		</div>
+		
+		<button type="button" id="btn1">测试1</button>	
+		
+		<button type="button" name="btn2">测试2</button>	
+		
+		<button type="button" id="btn3">解除绑定</button>	
+		<button type="button" id="btn4">重新绑定</button>	
+		
+		<button type="button" id="btn5">添加段落</button>	
+		
+		<form action="" method="post">
+			用户名：<input type="text" id="username" value="" />
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>

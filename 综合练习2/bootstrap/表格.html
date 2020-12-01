@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Bootstrap模板</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<!--[if lt IE 9]>
+		  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+		  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<h1>CSS 选择器</h1>			
+			<div class="table-responsive">
+				<table class="table table-striped table-hover table-bordered">
+					<tbody>
+						<tr>
+							<th width="22%" align="left">选择器</th>
+							<th width="17%" align="left">示例</th>
+							<th width="56%" align="left">示例说明</th>
+							<th align="left">CSS</th>
+						</tr>
+						<tr>
+							<td>.class</td>
+							<td class="notranslate">.intro</td>
+							<td>选择所有class="intro"的元素</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>#id</td>
+							<td class="notranslate">#firstname</td>
+							<td>选择所有id="firstname"的元素</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>*</td>
+							<td class="code notranslate">*</td>
+							<td>选择所有元素</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>element</td>
+							<td class="notranslate">p</td>
+							<td>选择所有&lt;p&gt;元素</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>element,element</td>
+							<td class="notranslate">div,p</td>
+							<td>选择所有&lt;div&gt;元素和&lt;p&gt;元素</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>element element</td>
+							<td class="notranslate">div p</td>
+							<td>选择&lt;div&gt;元素内的所有&lt;p&gt;元素</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>element&gt;element</td>
+							<td class="notranslate">div&gt;p</td>
+							<td>选择所有父级是 &lt;div&gt; 元素的 &lt;p&gt; 元素</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>element+element</td>
+							<td class="notranslate">div+p</td>
+							<td>选择所有紧接着&lt;div&gt;元素之后的&lt;p&gt;元素</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>[attribute]</td>
+							<td class="notranslate">[target]</td>
+							<td>选择所有带有target属性元素</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>[attribute=value]</td>
+							<td class="notranslate">[target=-blank]</td>
+							<td>选择所有使用target="-blank"的元素</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>[attribute~=value]</td>
+							<td class="notranslate">[title~=flower]</td>
+							<td>选择标题属性包含单词"flower"的所有元素</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>[attribute|=language]</td>
+							<td>[lang|=en]</td>
+							<td>选择 lang 属性以 en 为开头的所有元素</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>:link</td>
+							<td class="notranslate">a:link</td>
+							<td>选择所有未访问链接</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>:visited</td>
+							<td class="notranslate">a:visited</td>
+							<td>选择所有访问过的链接</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>:active</td>
+							<td class="notranslate">a:active</td>
+							<td>选择活动链接</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>:hover</td>
+							<td class="notranslate">a:hover</td>
+							<td>选择鼠标在链接上面时</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>:focus</td>
+							<td class="notranslate">input:focus</td>
+							<td>选择具有焦点的输入元素</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>:first-letter</td>
+							<td class="notranslate">p:first-letter</td>
+							<td>选择每一个&lt;P&gt;元素的第一个字母</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>:first-line</td>
+							<td class="notranslate">p:first-line</td>
+							<td>选择每一个&lt;P&gt;元素的第一行</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>:first-child</td>
+							<td class="notranslate">p:first-child</td>
+							<td>指定只有当&lt;p&gt;元素是其父级的第一个子级的样式。</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>:before</td>
+							<td class="notranslate">p:before</td>
+							<td>在每个&lt;p&gt;元素之前插入内容</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>:after</td>
+							<td class="notranslate">p:after</td>
+							<td>在每个&lt;p&gt;元素之后插入内容</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>:lang(language)</td>
+							<td class="notranslate">p:lang(it)</td>
+							<td>选择一个lang属性的起始值="it"的所有&lt;p&gt;元素</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>element1~element2</td>
+							<td>p~ul</td>
+							<td>选择p元素之后的每一个ul元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>[attribute^=value]</td>
+							<td>a[src^="https"]</td>
+							<td>选择每一个src属性的值以"https"开头的元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>[attribute$=value]</td>
+							<td>a[src$=".pdf"]</td>
+							<td>选择每一个src属性的值以".pdf"结尾的元素 </td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>[attribute*=value]</td>
+							<td>a[src*="runoob"]</td>
+							<td>选择每一个src属性的值包含子字符串"runoob"的元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:first-of-type</td>
+							<td>p:first-of-type</td>
+							<td>选择每个p元素是其父级的第一个p元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:last-of-type</td>
+							<td>p:last-of-type</td>
+							<td>选择每个p元素是其父级的最后一个p元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:only-of-type</td>
+							<td>p:only-of-type</td>
+							<td>选择每个p元素是其父级的唯一p元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:only-child</td>
+							<td>p:only-child</td>
+							<td>选择每个p元素是其父级的唯一子元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:nth-child(n)</td>
+							<td>p:nth-child(2)</td>
+							<td>选择每个p元素是其父级的第二个子元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:nth-last-child(n)</td>
+							<td>p:nth-last-child(2)</td>
+							<td>选择每个p元素的是其父级的第二个子元素，从最后一个子项计数</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:nth-of-type(n)</td>
+							<td>p:nth-of-type(2)</td>
+							<td>选择每个p元素是其父级的第二个p元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:nth-last-of-type(n)</td>
+							<td>p:nth-last-of-type(2)</td>
+							<td>选择每个p元素的是其父级的第二个p元素，从最后一个子项计数</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:last-child</td>
+							<td>p:last-child</td>
+							<td>选择每个p元素是其父级的最后一个子级。</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:root</td>
+							<td>:root</td>
+							<td>选择文档的根元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:empty</td>
+							<td>p:empty</td>
+							<td>选择每个没有任何子级的p元素（包括文本节点）</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:target</td>
+							<td>#news:target </td>
+							<td>选择当前活动的#news元素（包含该锚名称的点击的URL）</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:enabled</td>
+							<td>input:enabled</td>
+							<td>选择每一个已启用的输入元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:disabled</td>
+							<td>input:disabled</td>
+							<td>选择每一个禁用的输入元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:checked</td>
+							<td>input:checked</td>
+							<td>选择每个选中的输入元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:not(selector)</td>
+							<td>:not(p)</td>
+							<td>选择每个并非p元素的元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>::selection</td>
+							<td>::selection</td>
+							<td>匹配元素中被用户选中或处于高亮状态的部分</td>
+							<td>3</td>
+						</tr>
+
+
+						<tr>
+							<td>:out-of-range</td>
+							<td>:out-of-range</td>
+							<td>匹配值在指定区间之外的input元素</td>
+							<td>3</td>
+						</tr>
+
+						<tr>
+							<td>:in-range</td>
+							<td>:in-range</td>
+							<td>匹配值在指定区间之内的input元素</td>
+							<td>3</td>
+						</tr>
+
+						<tr>
+							<td>:read-write</td>
+							<td>:read-write</td>
+							<td>用于匹配可读及可写的元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:read-only</td>
+							<td>:read-only</td>
+							<td>用于匹配设置 "readonly"（只读） 属性的元素</td>
+							<td>3</td>
+						</tr>
+
+						<tr>
+							<td>:optional</td>
+							<td>:optional</td>
+							<td>用于匹配可选的输入元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:required</td>
+							<td>:required</td>
+							<td>用于匹配设置了 "required" 属性的元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:valid</td>
+							<td>:valid</td>
+							<td>用于匹配输入值为合法的元素</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>:invalid</td>
+							<td>:invalid</td>
+							<td>用于匹配输入值为非法的元素</td>
+							<td>3</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

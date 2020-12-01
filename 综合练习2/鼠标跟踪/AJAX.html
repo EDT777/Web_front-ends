@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				
+				//测试1 GET
+				$('#btn1').click(function(){
+					//缺省为GET
+					$.ajax('http://www.zyejy.com/listtempdatas.ashx?type=json')
+						.done(function(data) {
+							console.log("成功，返回数据为：" + JSON.stringify(data));
+						}).fail(function(xhr, status) {
+							console.log('失败: ' + xhr.status + ', 原因: ' + status);
+						}).always(function() {
+							console.log('请求完成: 无论成功或失败都会调用');
+						});;
+				})
+				
+				//测试2 POST
+				$('#btn2').click(function(){
+					$.ajax('http://www.zyejy.com/helloajax.ashx',{
+							method:'POST',
+							contentType: 'application/x-www-form-urlencoded',
+							data: {
+								username: 'joey',
+								password: '123456789',
+								email: 'joey@163.com'
+							}							
+						})
+						.done(function(data) {
+							console.log("成功，返回数据为：" + JSON.stringify(data));
+						}).fail(function(xhr, status) {
+							console.log('失败: ' + xhr.status + ', 原因: ' + status);
+						}).always(function() {
+							console.log('请求完成: 无论成功或失败都会调用');
+						});;
+				})
+				
+				//测试3 GET
+				$('#btn3').click(function(){
+					$.get('http://www.zyejy.com/listtempdatas.ashx?type=json')
+						.done(function(data) {
+							console.log("成功，返回数据为：" + JSON.stringify(data));
+						}).fail(function(xhr, status) {
+							console.log('失败: ' + xhr.status + ', 原因: ' + status);
+						}).always(function() {
+							console.log('请求完成: 无论成功或失败都会调用');
+						});;
+				})
+				
+				//测试4 POST
+				$('#btn4').click(function(){
+					$.post('http://www.zyejy.com/helloajax.ashx',
+						{
+							username: 'joey',
+							password: '123456789',
+							email: 'joey@163.com'
+						})
+						.done(function(data) {
+							console.log("成功，返回数据为：" + JSON.stringify(data));
+						}).fail(function(xhr, status) {
+							console.log('失败: ' + xhr.status + ', 原因: ' + status);
+						}).always(function() {
+							console.log('请求完成: 无论成功或失败都会调用');
+						});;
+				})
+				
+				//测试5 JSONP
+				$('#btn5').click(function(){
+					$.ajax('https://www.baidu.com/sugrec?ie=utf-8&json=1&prod=pc&wd=ja&bs=JSONP&pwd=JSONP',{
+						//指定dataType为JSONP
+						dataType: 'jsonp',
+						//回调函数参数名,jQuery会自动生成随机函数名
+						jsonp: 'cb'
+					}).done(function(data){
+						//接收结果
+						console.log(data);
+					})
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<button type="button" id="btn1">Test1</button>
+		<button type="button" id="btn2">Test2</button>
+		<button type="button" id="btn3">Test3</button>
+		<button type="button" id="btn4">Test4</button>
+		<button type="button" id="btn5">JSONP</button>
+	</body>
+</html>

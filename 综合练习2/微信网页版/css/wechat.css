@@ -1,0 +1,403 @@
+html,
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+/* 主页面 */
+#container {
+	background-image: url(../img/bg.jpg);
+	width: 100%;
+	height: 100%;
+	/* 保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小 */
+	background-size: cover;
+}
+
+/* 主窗口 */
+#main {
+	min-width: 800px;
+	max-width: 1000px;
+	min-height: 600px;
+	height: 80%;
+	margin: 0 auto;
+	padding-top: 100px;
+
+	display: flex;
+	/* 弹性布局变为横向排列 */
+	flex-direction: row;
+}
+
+/* 页脚 */
+#footer {
+	width: 100%;
+	position: absolute;
+	bottom: 30px;
+	text-align: center;
+	font-size: 12px;
+	color: #e3e3e3;
+}
+
+@media screen and (max-height: 800px) {
+	#footer {
+		visibility: collapse;
+	}
+
+	#main {
+		padding-top: 0px;
+		height: 100%;
+	}
+}
+
+/* 主窗口左边部分 */
+#left {
+	width: 280px;
+	display: flex;
+	/* 弹性布局变为纵向排列 */
+	flex-direction: column;
+	background: #2e3238;
+}
+
+/* 主窗口右边部分 */
+#right {
+	background: #eee;
+	display: flex;
+	flex: 1;
+	/* 弹性布局变为纵向排列 */
+	flex-direction: column;
+}
+
+/* 个人信息功能区 */
+#myinfo {
+	height: 76px;
+}
+
+/* 搜索栏 */
+#searchbar {
+	height: 40px;
+}
+
+/* 聊天/通讯录按钮区 */
+#navbutton {
+	height: 39px;
+}
+
+/* 聊天列表区 */
+#chatlist {
+	flex: 1;
+	overflow: hidden;
+}
+
+/* 聊天内容标题区 */
+#chattitle {
+	height: 51px;
+	text-align: center;
+	border-bottom: 1px solid #d6d6d6;
+}
+
+/* 聊天发送区 */
+#chatcontroller {
+	height: 181px;
+}
+
+/* 聊天历史内容区 */
+#chatbody {
+	flex: 1;
+	border-bottom: 1px solid #d6d6d6;
+}
+
+/* 头像框 */
+#avatar {
+	float: left;
+}
+
+#avatar>img {
+	height: 40px;
+	width: 40px;
+	margin: 18px;
+	cursor: pointer;
+}
+
+/* 用户名 */
+#username {
+	color: white;
+	float: left;
+	line-height: 76px;
+}
+
+/* 附加功能按钮 */
+#optlist {
+	float: right;
+	width: 30px;
+	height: 30px;
+	margin: 18px;
+	background-image: url(../img/resources.png);
+	background-position: -434px -398px;
+	cursor: pointer;
+}
+
+/* 搜索栏图标 */
+#searchicon {
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin: 1px;
+	background-image: url(../img/resources.png);
+	background-position: -60px -432px;
+	cursor: pointer;
+}
+
+/* 搜索栏输入框 */
+#searchicon+input {
+	height: 30px;
+	width: 214px;
+	margin: 4px;
+	background: #26292e;
+	border: none;
+	outline: none;
+	color: white;
+}
+
+.tabitem {
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+
+.tabitem i {
+	display: inline-block;
+	height: 35px;
+	width: 35px;
+	cursor: pointer;
+}
+
+.tabitem:first-child i {
+	background-image: url(../img/resources.png);
+	background-position: -185px -96px;
+}
+
+.tabitem:last-child i {
+	background-image: url(../img/resources.png);
+	background-position: -220px -96px;
+}
+
+
+.chat-scroll-wrapper {
+	overflow-y: scroll;
+	width: auto;
+	height: 100%;
+}
+
+/* 单个聊天情报 */
+.chat-item {
+	background: #2e3641;
+	border: 1px solid #292c33;
+	cursor: pointer;
+	padding: 12px 18px 11px;
+	/* 清除浮动 */
+	overflow: hidden;
+}
+
+.chat-avatar {
+	float: left;
+}
+
+.chat-avatar>img {
+	height: 40px;
+	width: 40px;
+	margin-right: 10px;
+}
+
+.chat-info {
+	float: left;
+}
+
+.nickname {
+	font-size: 13px;
+	color: white;
+	line-height: 12px;
+}
+
+.chat-msg {
+	font-size: 13px;
+	color: #989898;
+	line-height: 12px;
+}
+
+.ext-info {
+	float: right;
+	font-size: 13px;
+	color: #6b6f7c;
+}
+
+/* 被选中的聊天高亮显示 */
+.chat-selected {
+	color: white;
+	background: #3a3f45;
+}
+
+/* 聊天标题区 */
+#chattitle>* {
+	display: inline-block;
+	line-height: 51px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+#chattitle>i {
+	background-image: url(../img/resources.png);
+	background-position: -477px -65px;
+	width: 10px;
+	height: 10px;
+}
+
+
+/* 工具栏 */
+#toolbar {
+	height: 30px;
+	padding: 5px 17px;
+}
+
+#toolbar>a {
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+}
+
+#tool-smile {
+	background-image: url(../img/resources.png);
+	background-position: -404px -398px;
+}
+
+#tool-cute {
+	background-image: url(../img/resources.png);
+	background-position: -30px -432px;
+}
+
+#tool-file {
+	background-image: url(../img/resources.png);
+	background-position: -120px -432px;
+}
+
+#editArea {
+	width: 100%;
+	height: 6em;
+	border: none;
+	background: transparent;
+	outline: none;
+	font-size: 14px;
+	padding: 0px 20px;
+	resize: none;
+}
+
+.actionbar {
+	text-align: right;
+}
+
+.actionbar>span {
+	color: #888;
+	font-size: 12px;
+	margin-right: 10px;
+}
+
+.actionbar>button {
+	background: #fff;
+	border: 1px lightgray solid;
+	border-radius: 5px;
+	padding: 5px 30px;
+	margin-right: 20px;
+}
+
+
+/* 聊天主内容区 */
+/* 时间信息 */
+.msgtime {
+	text-align: center;
+	line-height: 30px;
+	font-size: 12px;
+	color: #b2b2b2;
+}
+
+.chat-content {
+	padding: 5px 15px;
+}
+
+.chat-content:after {
+	content: '';
+	display: block;
+	clear: both;
+	visibility: collapse;
+}
+
+.chat-content>img {
+	height: 40px;
+	width: 40px;
+	cursor: pointer;
+}
+
+.bubble {
+	background: white;
+	font-size: 14px;
+	min-height: 1em;
+	padding: 9px 13px;
+	margin: 0px 10px;
+	border-radius: 5px;
+	position: relative;
+	max-width: 400px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+	background: #b2e281;
+}
+
+.bubble.left:before {
+	content: '';
+	border-width: 6px;
+	border-style: solid;
+	border-color: transparent white transparent transparent;
+	position: absolute;
+	top: 15px;
+	right: 100%;
+}
+
+.bubble.right:after {
+	content: '';
+	border-width: 6px;
+	border-style: solid;
+	border-color: transparent #b2e281 transparent transparent;
+	position: absolute;
+	top: 15px;
+	left: 100%;
+	transform: rotate(180deg);
+}
+
+
+
+/*滚动条整体样式*/
+.chat-scroll-wrapper::-webkit-scrollbar {
+	/*高宽分别对应横竖滚动条的尺寸*/
+	width: 10px;
+	height: 1px; /* 高度实际设置无用,由浏览器生成 */
+}
+
+.chat-scroll-wrapper::-webkit-scrollbar-thumb {
+	/*滚动条里面小方块*/
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+	background: #535353;
+
+}
+
+.chat-scroll-wrapper::-webkit-scrollbar-track {
+	/*滚动条里面轨道*/
+	-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	background: transparent;
+
+}

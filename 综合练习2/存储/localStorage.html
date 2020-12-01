@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>localStorage的使用</title>
+	</head>
+	<body>
+		<button type="button" onclick="addRandom()">随机添加</button>
+
+		<script type="text/javascript">
+			if (!window.localStorage) {
+				alert("浏览器不支持localstorage");
+			} else {
+				//主逻辑业务
+
+				//保存数据/修改数据				
+				localStorage['x1'] = 1;
+				localStorage.x2 = '2';
+				//localStorage.setItem('x3', { name:'joey', age: 20 });
+				localStorage.setItem('x3', JSON.stringify({
+					name: 'joey',
+					age: 20
+				})); //推荐
+
+				//读取数据
+				console.log(localStorage.x2);
+				console.log(localStorage.getItem('x3'));
+				var person = JSON.parse(localStorage.getItem('x3'));
+				console.log(person);
+				
+				//遍历
+				for (let i = 0; i < localStorage.length; i++) {
+					let key = localStorage.key(i);
+					let value = localStorage.getItem(key);
+					console.log(`${key} = ${value}`);
+				}
+				
+				//删除数据
+				//localStorage.removeItem('x1');	
+				//清空
+			//	localStorage.clear();
+			
+								
+			}
+			
+			function addRandom(){
+				localStorage.setItem('r' + localStorage.length, Math.random());
+			}
+		</script>
+	</body>
+</html>

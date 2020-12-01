@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery遍历函数</title>
+		<script src="./js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				//初始化游戏
+				(function() {
+					for (let i = 1; i <= 100; i++) {
+						$('#game').append(`<div>${i}</div>`);
+					}
+				}());
+
+				
+				//保存数字元素集合
+				var numboxs = $('#game div:gt(0)');
+				numboxs.addClass('numbox');
+
+				//开始游戏
+				$('#game button:first').click(function() {
+					this.disabled = true;
+					var delay = 1;
+
+					//抽奖
+					function bingo() {
+						var n = Math.floor(Math.random() * 100);
+						numboxs.filter('.bingo').removeClass('bingo');
+						numboxs.eq(n).addClass('bingo');
+						delay += 20;
+						//抽奖完成
+						if (delay >= 400) {
+							gameEnd();
+							return;
+						}
+						setTimeout(bingo, delay);
+					}
+
+					setTimeout(bingo, delay);
+				});
+
+				//抽奖完成动画
+				function gameEnd() {
+					//numboxs.not('.bingo').hide();
+					numboxs.not('.bingo').each(function(index, box) {
+
+						$(box).animate({
+							opacity: 0
+						}, Math.random()*2000);
+						
+						setTimeout(
+						 function() {
+							numboxs.filter('.bingo').css('position', 'absolute');
+							numboxs.filter('.bingo').animate({
+								left: 0,
+								top: 40,
+								width: '100px',
+								height: '100px',
+								fontSize: '48px',
+								lineHeight: '100px'
+							}, 2000);
+						}, 2000);
+
+					});
+
+					// numboxs.not('.bingo').animate({
+					// 	opacity: 0
+					// }, 2000, function() {
+					// 	numboxs.filter('.bingo').css('position','absolute');
+					// 	numboxs.filter('.bingo').animate(
+					// 		{
+					// 			left:0,
+					// 			top:40,
+					// 			width:'100px',
+					// 			height: '100px',
+					// 			fontSize: '48px',
+					// 			lineHeight: '100px'
+					// 		},2000
+					// 	);
+					// });
+				}
+		
+			});
+		</script>
+		<style type="text/css">
+			#game {
+				width: 420px;
+				height: auto;
+				margin: 20px;
+				position: relative;
+			}
+
+			.numbox {
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				border: 1px solid lightblue;
+				text-align: center;
+				display: inline-block;
+			}
+
+			.bingo {
+				background: gold;
+				color: red;
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="game">
+			<div>
+				<button type="button">抽奖</button>
+			</div>
+		</div>
+	</body>
+</html>

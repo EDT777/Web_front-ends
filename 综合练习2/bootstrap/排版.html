@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>-->
+		<!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+		<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+		<title>
+			排版示例
+		</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>标题1
+				<small>副标题1</small>
+			</h1>
+			<div class="h2">内联标题2
+				<small>副标题2
+					<small>副标题3</small>
+				</small>
+			</div>
+
+
+			<!-- 强调 -->
+			<p>
+				没有强调的段落
+			</p>
+			<p class="lead">
+				Bootstrap强调段落（lead）
+			</p>
+			<p class="text-success">JAVA全栈</p>
+			<p class="text-danger text-center">禁止驶入</p>
+
+			<!-- 缩写 -->
+			<abbr title="章鱼教育,专注IT教育">章鱼教育</abbr>
+
+			<!-- 引用 -->
+			<blockquote>
+				<p>我是要成为海贼王的男人</p>
+				<footer>路飞 <cite>海贼王</cite> </footer>
+			</blockquote>
+
+			<!-- 内联列表 -->
+			<ul class="list-inline">
+				<li>JAVA</li>
+				<li>C#</li>
+				<li>Python</li>
+			</ul>
+
+			<!-- 单行代码 -->
+			<code>
+				System.out.println("hello world!");
+			</code>
+			<!-- 多行代码 pre-scrollable控制代码块最高高度340px -->
+			<pre class="pre-scrollable">
+				int i =0;
+				for(int n=0;n<100;n++){
+					i++;
+				}
+			</pre>
+			<!-- 显示用户输入代码 -->
+			<div>请输入<kbd>ctrl+c</kbd>来复制代码，然后使用<kbd>ctrl+v</kbd>来粘贴代码</div>
+
+			<!-- 表格 -->
+			<div class="table-responsive" style="margin: 30px 10px;">
+				<table class="table table-hover table-bordered">
+					<tr class="info">
+						<th>姓名</th>
+						<th>武力</th>
+						<th>智力</th>
+					</tr>
+					<tr>
+						<td>刘备</td>
+						<td>80</td>
+						<td>85</td>
+					</tr>
+					<tr class="danger">
+						<td>关羽</td>
+						<td>110</td>
+						<td>80</td>
+					</tr>
+					<tr class="warning">
+						<td>张飞</td>
+						<td>105</td>
+						<td>70</td>
+					</tr>
+				</table>
+			</div>
+
+
+			<!-- 内联表单 -->
+			<form class="form-inline" style="display: none;">
+				<div class="form-group">
+					<label for="name">用户名:</label>
+					<input type="text" name="name" id="name" placeholder="用户名" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label for="name">密码:</label>
+					<input type="password" name="password" id="password" placeholder="密码" class="form-control" />
+				</div>
+				<button type="button" class="btn btn-info">提交</button>
+			</form>
+
+			<!-- 水平表单 -->
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox"> 记住我
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-default">登录</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

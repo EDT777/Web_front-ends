@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTML5智能表单</title>
+	</head>
+	<body>
+		
+		<form action="" method="get">
+			<fieldset id="">
+				<legend>智能表单</legend>
+				<div>
+					<label for="email">email:</label>
+					<input type="email" name="email" id="email" value="test@163.com" required="required"/>
+				</div>
+				<div id="">
+					<label for="url">URL:</label>
+					<input type="url" name="url" id="url" value="http://www.baidu.com" required="required"/>
+				</div>
+				
+				<div id="">
+					<label for="score">成绩:</label>
+					<input type="number" name="score" id="score" value="0" required="required" min="0" max="100" step="2"/>
+				</div>
+				
+				<div id="">
+					<label for="range">透明度:</label>
+					<input type="range" name="range" id="range" value="15" min="0" max="100" required="required"/>
+				</div>
+				
+				<div id="">
+					<label for="date">日期:</label>
+					<input type="datetime-local" name="date" id="date" required="required"/>
+				</div>
+				
+				<div id="">
+					<label for="s">search:</label>
+					<input type="search" name="s" id="s" required="required"/>
+				</div>
+				
+				<div id="">
+					<label for="c">颜色:</label>
+					<input type="color" name="c" id="c" required="required"/>
+				</div>
+			</fieldset>
+		 	
+			
+			
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>

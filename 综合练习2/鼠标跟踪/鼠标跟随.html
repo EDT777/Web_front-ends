@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				var pos ;
+				//检测鼠标位置
+				$('#div1').mousemove(function(e){
+					pos = {x: e.offsetX, y: e.offsetY};
+					console.log(pos);
+				});
+				
+				//生成小心心
+				function createHeart(){
+					if(pos) {
+						//创建心型元素
+						let heart = $('<div class="heart"></div>');
+						heart.css({left: pos.x, top:pos.y});
+						//添加到文档
+						$('#div1').append(heart);
+						
+						let left = pos.x + Math.random()*100 - 50;
+						let top = pos.y - Math.random()*200;
+						//小心心飘散动画
+						heart.animate({
+							left: left,
+							top: top,
+							opacity: 0,
+						}, 2000, function(){
+							//动画结束后移除心形元素
+							$(this).remove();
+						});					
+					}
+				}
+				
+				//定时器
+				setInterval(createHeart,300);
+			});
+		</script>
+		<style type="text/css">
+			html,body{
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+			}
+			#div1 {
+				width: 100%;
+				height: 100%;
+				background: lightblue;
+			}
+			.heart {
+				width: 10px;
+				height: 10px;
+				background: red;
+				top: 100px;
+				left: 100px;
+				position: absolute;
+				transform: rotate(45deg);
+			}
+			.heart:before,.heart:after {
+				content: '';
+				background: red;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				position: absolute;
+				
+			}
+			.heart:before{
+				left: -50%	
+			}
+			.heart:after {
+				top:-50%
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			
+				
+		</div>
+	</body>
+</html>

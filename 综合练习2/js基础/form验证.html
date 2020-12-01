@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.must:before {
+				content: "* ";
+				color: red;
+			}
+			input[type=button] {
+				width: 100px;
+				height: 30px;
+				margin: 5px 0 0 220px;
+			}
+			.error {
+				color:red;
+				font-weight: bold;
+			}
+		</style>
+		
+				
+		<script type="text/javascript">
+			function testData(){
+				if(! /^[0-9z-zA-Z]{3,10}$/i.test(document.myform.username.value)){
+					alert("用户名错误！");
+				}
+			}
+			
+		</script>
+		
+	</head>
+	<body>
+		<form action="reg.html" method="get" name="myform">
+			<table>
+				<tr>
+					<td>用户名:</td>
+					<td><input type="text" name="username" required pattern="^[0-9a-zA-Z]{3,10}$" title="用户名只能由3-10位的字母和数字组成"></td>
+					<td class="must">3-10位，只能由字母，数字组成</td>
+				</tr>
+				<tr>
+					<td>密码：</td>
+					<td><input type="password"  name="password" required pattern="^\w{6,12}$" title="密码6-12位，只能由下划线, 字母，数字组成"/></td>	
+					<td class="must">6-12位，只能由下划线, 字母，数字组成</td>			
+				</tr>
+				<tr>
+					<td>昵称:</td>
+					<td><input type="text" name="nickname" required pattern="^[\u4e00-\u9fa5]{4,10}$" title="请输入4-10个以内汉字"></td>
+					<td class="must">4-10个以内汉字</td>
+				</tr>
+				<tr>
+					<td>Email：</td>
+					<td><input type="text"  name="email" pattern="^[a-zA-Z]\w{5,17}@(\w+\.){1,2}\w{2,5}$" ></td>
+					<td>标准邮箱格式(6~18个字符，可使用字母、数字、下划线，需以字母开头)</td>
+				</tr>
+				<tr>
+					<td>手机号码:</td>
+					<td><input type="text" name="phone" pattern="^1[3-8]\d{9}$"></td>
+					<td>11位手机号</td>
+				</tr>
+			</table>
+			<input type="submit" value="提交"/>
+			
+			<!-- 自定义脚本实现 -->
+			<button type="button" onclick="testData()">提交2</button>
+			
+		</form>
+
+	</body>	
+</html>

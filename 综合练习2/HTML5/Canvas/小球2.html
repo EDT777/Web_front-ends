@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			body {
+				background-color: #333333;
+			}
+
+			.out {
+				height: 600px;
+				width: 1000px;
+				margin: 50px auto;
+				box-shadow: 2px 2px 10px #999;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="out">
+			<canvas id="canvas" width="1000" height="600">您的浏览器不支持</canvas>
+		</div>
+
+		<script>
+			/**
+			 * 创建一个小球的构造函数
+			 * @param canvasW   画布的宽
+			 * @param canvasH   画布的高
+			 * @param ctx       2d上下文
+			 * @constructor
+			 */
+			function Ball(canvasW, canvasH, ctx) {
+				this.canvasW = canvasW
+				this.canvasH = canvasH
+				this.ctx = ctx
+				this.r = this.randomInt(10, 80)
+				this.x = this.randomInt(this.r, this.canvasW - this.r)
+				this.y = this.randomInt(this.r, this.canvasH - this.r)
+
+				let R = this.randomInt(0, 255)
+				let G = this.randomInt(0, 255)
+				let B = this.randomInt(0, 255)
+				let A = Math.random()
+				this.color = `rgba(${R},${G},${B},${A})`
+
+				let speedX = this.randomInt(1, 4)
+				this.speedX = this.randomInt(0, 100) > 50 ? speedX : -speedX
+				let speedY = this.randomInt(1, 4)
+				this.speedY = this.randomInt(0, 100) > 50 ? speedY : -speedY
+			}
+			//绘制一个小球
+			Ball.prototype.draw = function() {
+				let deg = Math.PI / 180
+				this.ctx.beginPath()
+				this.ctx.arc(this.x, this.y, this.r, 0, 360 * deg, true)
+				this.ctx.closePath()
+				this.ctx.fillStyle = this.color
+				this.ctx.fill()
+			}
+
+			//小球移动
+			Ball.prototype.ballMove = function() {
+				this.x += this.speedX
+				this.y += this.speedY
+
+				if (this.x >= this.canvasW - this.r) {
+					this.speedX *= -1
+				} else if (this.x <= this.r) {
+					this.speedX *= -1
+				}
+
+				if (this.y >= this.canvasH - this.r) {
+					this.speedY *= -1
+				} else if (this.y <= this.r) {
+					this.speedY *= -1
+				}
+			}
+
+			//产生范围随机数的函数
+			Ball.prototype.randomInt = function(from, to) {
+				return parseInt(Math.random() * (to - from + 1) + from);
+			}
+
+			let canvas = document.querySelector('#canvas');
+			let ctx = canvas.getContext('2d')
+			//定义一个数组用来盛放所有的小球"对象"
+			let balls = []
+			for (let i = 0; i < 100; i++) {
+				let ball = new Ball(canvas.width, canvas.height, ctx);
+				balls.push(ball)
+			}
+
+			setInterval(function() {
+				//绘图之前先清空画布
+				ctx.clearRect(0, 0, canvas.width, canvas.height)
+				for (let i = 0; i < balls.length; i++) {
+					balls[i].ballMove();
+					balls[i].draw()
+				}
+			}, 30)
+		</script>
+	</body>
+</html>

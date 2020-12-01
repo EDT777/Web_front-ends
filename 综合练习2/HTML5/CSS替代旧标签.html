@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS替代旧标签</title>
+		<script type="text/javascript">
+			
+		</script>
+	</head>
+	<body>
+
+		<p>
+			<span style="text-decoration: line-through;">删除线</span>
+		</p>
+
+		<p>			
+			<span style="text-decoration: line-through;">
+				<!-- 规定应该从父元素继承 text-decoration 属性的值。 -->
+				<span style="text-decoration: inherit;">删除线</span>
+			</span>
+		</p>
+		
+		<span style="text-decoration: overline;">上划线</span>
+		
+		<span style="text-decoration: underline;">下划线</span>
+		
+		<p>
+			<!-- 只有低版本的FireFox支持，不建议使用了 -->
+			<span style="text-decoration: blink;">闪烁文本</span>
+		</p>
+
+
+		<span style="font-weight: bold;">加粗</span>
+		
+		<span style="font-style: italic;">斜体</span>	
+		
+
+	</body>
+</html>

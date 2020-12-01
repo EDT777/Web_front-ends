@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				
+				
+				$('#getText').click(function(){
+					//获取文本
+					console.log($('input[type="text"').val());
+				});
+				$('#setText').click(function(){
+					//设置文本
+					$('input[type="text"').val(new Date().toLocaleString());
+				});
+				
+				
+				$('#setClass').click(function(){
+					//设置class
+					$("div:eq(0)").addClass('red');
+				});
+				
+				$('#toggleClass').click(function(){
+					//切换class
+					$("div").toggleClass('red')
+				});
+				
+				
+				//插入元素
+				$('#addElement').click(function(){
+					 $('<input />', {
+						 name : 'newinput',
+						 type : 'text',
+						 style : 'width: 80%;',
+						 value: 'new input'
+					 }).appendTo($('div'));
+					
+					$('body').append('<p>新建段落</p>');
+				});
+				
+				//删除元素
+				$('#removeElement').click(function(){
+					 $('div input').remove();
+					 $('body').children().remove('p');
+				});
+			});
+		</script>
+		<style type="text/css">
+			.demo {
+				width: 100px;
+				height: 100px;
+				border: 1px solid black;
+				text-align: center;
+				margin: 10px;
+				display: inline-block;
+			}
+			.red {
+				background: red;
+			}
+			
+			.blue {
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		
+		姓名：<input type="text" value="" /> <br>
+		邮箱：<input type="text" value="" /> <br>
+		<button type="button" id="getText">获取文本</button>
+		<button type="button" id="setText">设置文本</button>
+		<br>
+		<div class="demo">
+			div1
+		</div>
+		<div class="demo">
+			div2
+		</div>
+		<br>
+		<button type="button" id="setClass">设置class</button>
+		<button type="button" id="toggleClass">切换class</button>
+		<br>
+		
+		<button type="button" id="addElement">插入元素</button>
+		<button type="button" id="removeElement">删除元素</button>
+	</body>
+</html>

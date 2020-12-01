@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<!--声明文档兼容模式，表示使用IE浏览器的最新模式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--设置视口的宽度(值为设备的理想宽度)，页面初始缩放值<理想宽度/可见宽度>-->
+		<!--视口的作用：在移动浏览器中，当页面宽度超出设备，浏览器内部虚拟的一个页面容器，会将页面缩放到设备这么大来展示-->
+		<!--width 设置layout viewport  的宽度，为一个正整数，或字符串"width-device"(表示采用设备的宽度)
+			initial-scale 设置页面的初始缩放值，为一个数字，可以带小数
+			minimum-scale 允许用户的最小缩放值，为一个数字，可以带小数
+			maximum-scale 允许用户的最大缩放值，为一个数字，可以带小数
+			height 设置layout viewport  的高度，这个属性对我们并不重要，很少使用
+			user-scalable 是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes代表允许
+			如果设置"user-scalable=no",那么"minimum-scale"和"maximum-scale"无效
+		-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>Bootstrap模板</title>
+
+		<!-- Bootstrap -->
+		<!-- 引入Bootstrap核心样式文件 -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+		<!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+		<!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+		<!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+	</head>
+	<body>
+		<h1>Hello World！</h1>
+		
+		<!--前端开发建议：网站优化时，除了立即需要工作的js存放在head外，将大部分JS文件放在页面的末尾-->
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="https://c-ssl.duitang.com/uploads/item/201801/16/20180116133550_kYRjB.thumb.700_0.jpeg" width="300px">
+		<p>
+			<cite>星月夜</cite> - 梵高
+		</p>
+
+		<!-- 长文本引用，标签内的内容会自动有缩进 -->
+		<blockquote cite="https://book.douban.com/subject/1449351/">
+			不在沉默中爆发,就在沉默中灭亡
+		</blockquote>
+
+		<!-- 单行代码 -->
+		<code>
+			System.out.println("hello world!");
+		</code>
+
+		<!-- 多行代码， 会保留空格和Tab -->
+		<pre>
+			for(int i = 0; i<10; i++) {
+				System.out.println(i);
+			}
+		</pre>
+
+
+		<p>
+			按下<kbd>Ctrl+C</kbd>复制文本
+		</p>
+
+		<p>
+			<time>2015年10月13日下午</time>，2015年<time datetime="2015-11-11">天猫双11全球狂欢节</time>宣布启动，在杭州西溪园区的天猫喵鲜生与全球百大生鲜协会签约现场展示区，阿里巴巴集团董事局主席马云现场扫码拍下今年双11生鲜第一大单——购买了一条重达68公斤的蓝鳍金枪鱼，价格为38888元。
+		</p>
+
+		<p>
+			<address>
+				作者: Joey <br>
+				地址： 湖南省长沙市 <br>
+				Tel: <a href="tel: +86123456789">+86 123456789</a> <br>
+				Email: <a href="mailto:2057388734@qq.com">mail to me</a>.<br>
+				QQ: <a href="tencent://message/?uin=2057388734&Site=&Menu-=yes">2057388734</a> <br>
+			</address>
+		</p>
+
+		<p>
+			昨日湖南上空出现<abbr title="Unidentified Flying Object">UFO</abbr>引来市民围观。
+		</p>
+
+		<p>
+			<!-- progress IE9及更早版本不支持 在不同的浏览器里显示效果会不一样-->
+			等待加载中： <progress max="100"></progress> <br>
+			文件下载中： <progress max="100" value="30" id="myprogress">您的浏览器不支持该标签</progress> <br>
+			<!-- meter 适用于知道数据范围的标量，IE不支持 -->
+			<!-- 			high   定义度量的值位于哪个点，被界定为高的值。    
+						low  定义度量的值位于哪个点，被界定为低的值。    
+						max  定义最大值。默认值是 1。    
+						min   定义最小值。默认值是 0。    
+						optimum    定义什么样的度量值是最佳的值。如果该值高于 "high" 属性，则意味着值越高越好。如果该值低于 "low" 属性的值，则意味着值越低越好。    
+						value    number    定义度量的值。
+			 -->			
+		磁盘使用量： <meter low="60" high="80" min="0" max="100" optimum="10" value="68" id="mymeter">您的浏览器不支持该标签</meter>
+		</p>
+
+		<script type="text/javascript">
+			var meter = document.getElementById("mymeter");
+			var progress = document.getElementById("myprogress");
+
+			function stepup() {
+				loop(meter);
+				loop(progress);
+			}
+
+			function loop(e) {
+				var current = Number(e.getAttribute("value"));
+				var max = Number(e.getAttribute("max"));
+				current++;
+				if (current > max) {
+					current = 0;
+				}
+				console.log(current);
+				e.setAttribute("value", current);
+			}
+
+			window.setInterval(stepup, 10);
+		</script>
+	</body>
+	</htCtrl + Cml>
