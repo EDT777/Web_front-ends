@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: rgba(255,0,0,1);
+				margin: 50px;
+				border-radius: 50%;
+			}
+		</style>
+		<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript"> 
+			
+		
+				$(function(){
+					$('input[type="range"]:not("#zoom")').change(function(){
+						var r=$('#cr').val(),g=$('#cg').val() ,b=$('#cb').val(),a=$('#ca').val();
+						var color =`rgba(${r},${g},${b},${a})`;
+						$('#ball').css('background',color);
+					})
+					
+					$('#zoom').change(function(){
+						var zoom =this.value;
+						$('#ball').css('transform',`scale(${zoom})`);
+						})
+						
+					$('input[type="range"]').mousemove(function(e){
+						if(e.which==1){
+							$(this).change();
+						}
+					})
+				})
+			
+			
+		
+			
+		</script>
+	
+	</head>
+	
+	<body>
+		
+	R:
+	<input type="range" id="cr" min="0" max="255" value="255" />
+	<br>
+	G:
+	<input type="range" id="cg" min="0" max="255" value="0" />
+	<br>
+	B:
+	<input type="range" id="cb" min="0" max="255" value="0" />
+	<br>
+	A:
+	<input type="range" id="ca" min="0" max="1" step="0.1" value="1" />
+	<br>
+	Zoom:
+	<input type="range" id="zoom" min="0.1" max="2" step="0.1" value="1" />
+	<br >
+	
+	<div id="ball">
+		
+	</div>
+	
+		
+	</body>
+</html

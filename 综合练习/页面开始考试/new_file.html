@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<div id="aaa">
+			
+		<button type="button" onclick="onStart()" >开始考试</button></div>
+		<p>11 </p>
+		
+		<style type="text/css">
+			body{
+				text-align: center;
+				margin: 0;
+				font-weight: bold;
+			}
+		</style>
+		<script type="text/javascript">
+			
+			const MAX_TIME =60;
+			
+			var btn =document.querySelector('button');
+			var p=document.querySelector('p');
+			
+			if(localStorage.getItem('starttime')){
+				btn.disabled=true;
+				requestAnimationFrame(refresh);
+			}
+			
+			function onStart(){
+				btn.disabled=true;
+				localStorage.setItem('starttime',new Date());
+				requestAnimationFrame(refresh);
+			}
+			
+			function refresh(){
+				var now = new Date();
+				var start = new Date(localStorage.getItem('starttime'));
+				
+				var passed =Math.floor((now-start)/1000);
+				var left = MAX_TIME-passed;
+				 if(left<=0){
+					p.innerText='交卷时间到啦';
+					btn.innerText='重新考试';
+					btn.disabled = false;
+				}else{
+					var mins =Math.floor(left/60);
+					var secs =left -mins*60;
+					if(mins>0){
+							p.innerText =`剩余时间:${mins}分${secs}秒`;
+					}else{
+						p.innerText=`剩余时间：${secs}秒`;
+					}
+					
+					requestAnimationFrame(refresh);
+				}
+			}
+		</script>
+		
+		
+		
+	</body>
+</html>

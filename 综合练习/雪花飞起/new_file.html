@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			body{
+				background: lightblue;
+			}
+			
+			.snow{
+				width: 20px;
+				height: 20px;
+				background: white;
+				border-radius: 50%;
+				box-shadow: 0px 0px 20px white;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+			
+		</style>
+		
+		<script src="../jquery.min.js" type="text/javascript " charset="UTF-8"></script>
+		<script type="text/jscript">
+	
+				$(function(){
+					setInterval(function(){
+					
+							
+							//随机初始位置
+							var left =screen.width*Math.random();
+							var top  =-15;
+							//下落点随机偏移
+							var endLeft = left + Math.random()*500 -250;
+							var endTop = screen.height+20;
+							//随机大小和透明度
+							var zoom =Math.random()*0.5+0.5;//0.5-1倍
+							var opacity =Math.random()*0.5+0.5;//0.5-1倍
+							//随机速度(时长)
+							var delay=1000*(Math.random()*3+7);//12-15秒
+							
+							$('<div class="snow"></div>').css({
+								left:left,
+								top:top,
+								transform:`scale(${zoom})`,
+								opacity:opacity
+								
+							}).animate({
+								left:endLeft,
+								top:endTop,
+							},delay,function(){
+								$(this).remove();
+							}
+							
+							).appendTo($('body'));
+							
+						
+							
+							
+						},10);
+						
+						
+						
+				});
+	
+			
+			
+		</script>
+	</head>
+	<body>
+		
+			
+		</div>
+	</body>
+</html>

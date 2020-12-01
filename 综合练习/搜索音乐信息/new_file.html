@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>搜索qq音乐</title>
+	</head>
+	<body>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			#result{
+				width:100%;
+				min-width: 800px;
+				overflow: scroll;
+				margin: 10px;
+			}
+		</style>
+		<input type="searchs" id="keyword" placeholder="请输入歌曲名称" value="简单爱"/>
+		<button type="button" onclick="doSearch()">搜索</button>
+		
+		<table border="1" id="result" cellpadding="5px" cellspacing="0px">
+			<tbody>
+				<tr>
+					<th>歌曲</th>
+						<th>歌手</th>
+							<th>专辑</th>
+								<th>时长</th>
+				</tr>
+			</tbody>
+			<tbody id="tbody"></tbody>
+		</table>
+		
+		<script type="text/javascript">
+			var scriptElement;
+			
+			function doSearch(){
+				
+				var word = document.getElementById('keyword').value;
+				
+				if(word){
+					
+					if(scriptElement){
+						//删除旧的<script type="text/javascript">
+							scriptElement.remove();
+							}
+							//创建新的script元素
+							scriptElement=document.createElement("script");
+							scriptElement.src=`https://c.y.qq.com/soso/fcgi-bin/client_search_cp?aggr=1&cr=1&flag_qc=0&p=1&n=30&w=${word}`;
+							document.body.appendChild(scriptElement);
+							}
+						    	}
+								
+								
+						//回调函数,接收数据和显示数据
+						function callback(rslt){
+							if(rslt&&rslt.data){
+								var str='';
+								for(let music of rslt.data.song.list){
+									str+=`<tr>
+									<td>${music.songname}</td>
+									<td>${music.singer[0].name}</td>
+									<td>${music.albumname}</td>
+									<td>${convertInterval(music.interval)}</td>
+									
+									</tr>`
+									;
+								}
+								document.getElementById('tbody').innerHTML=str;
+							}
+						}
+						
+						//秒数转时间
+						function convertInterval(interval){
+							var min =Math.floor(interval/60);
+							var sec=interval%60;
+							return `${min}分${sec}秒`;
+						}
+						</script>
+					
+				
+			
+		
+	</body>
+</html>

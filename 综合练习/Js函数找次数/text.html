@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- 生成某函数func(str1,str2),要求返回str2在str1中出现的次数 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function func1(str1,str2){
+				if(!str1||!str2){
+					return 0;
+				}
+				//全部转成小写,保证忽略大小写
+				str1=str1.toLowerCase();
+				str2=str2.toLowerCase();
+				
+				var index=-1,fromIndex=0,count=0;
+				do{
+					
+					index=str1.indexOf(str2,fromIndex);
+					if(index<0){
+						break;
+					}
+					fromIndex = index+str2.length;
+					count++;
+				}while (fromIndex<str1.length)
+					
+				console.log(count);
+				return count;
+			}
+			
+			function func2(str1,str2){
+				if(!str1||!str2){
+					return 0;
+				}
+				
+				str1=str1.toLowerCase();
+				str2=str2.toLowerCase();
+				
+				var arr=str1.split(str2);
+				
+				var count =arr.length-1;
+				
+				console.log(count);
+				return count;
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

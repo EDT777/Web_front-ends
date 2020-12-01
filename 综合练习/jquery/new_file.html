@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../jquery.js" type="text/javascript" charset="UTF-8"> </script >
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+				$("#username").focusin(function(){
+					$(this).css("borderColor","red");
+					
+				});
+				
+				$("#username").focusout(function(){
+					var value = this.value;
+					if(value.length==0||value.length>=20){
+						$("#msg").text("请输入内容，且长度不能大于20个字符");
+					}else{
+						$("#msg").text("");
+					}
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<input type="text" id="username" />
+		<p id="msg"> </p>
+	</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script></script>
+		
+	<script src="../jquery.min.js" type="text/javascript" charset="UTF-8"> </script>
+	<script src="../jquery.validate.min.js " type="text/javascript " charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/jquery-validate/1.19.1/additional-methods.min.js"></script>
+	<script type="text/jscript">
+		$(function(){
+			//预期答案
+			var exceptAnswer;
+			//生成随机题目
+			function createQuestion(){
+				
+				var num1 =Math.floor(Math.random()*90+10);
+				var num2 =Math.floor(Math.random()*90+10);
+				var action =new Date().getTime()%2==0?1:-1;
+				exceptAnswer =num1 +action*num2;
+				
+				$('#question').text(`${num1} ${action>0?'+':'-'}${num2}=`);
+				$('#answer').val('');
+			}
+			createQuestion();
+			//刷新题目
+			$('#refresh').click(createQuestion);
+			
+			
+			
+			//添加自定义校验规则
+			jQuery.validator.addMethod('enAndNumAnd_',function(value,element,params){
+				
+				var min =params[0];
+				var max =params[1];
+				
+				return new RegExp(`^[0-9a-zA-Z_]{${min},${max}}$`,'ig').text(value);
+				
+			});
+			
+			jQuery.validator.addMethod('validateQuestion',function(value,element,params){
+				var answer = value -0;
+				return answer == exceptAnswer;
+			})
+			
+			$('#form1').validate({
+				//效验规则
+				rules:{
+					username:{
+						required:true ,
+						enAndNumAnd_ : [6,12]
+					},
+					password:{
+						required:true,
+						rangelength:[6,15]
+					},
+					passwordRepeat :{
+						required:true,
+						equalTo:'#password'
+					},
+					answer:{
+						required : true,
+						validateQuestion : true
+					}
+					
+					
+				},
+				//自定义错误提示信息
+				messages:{
+					username:{
+						required:'请输入用户名',
+						enAndNumAnd_:'请输入{0}到{1}位的数字，字母和下划线的组合字符串'
+						
+					},
+					
+					passwordRepeat:{
+						required:'请再次输入确认密码',
+						equalTo:'2次输入的密码不一样'
+					},
+					answer:{
+						required:'请输入答案',
+						validateQuestion:'答案错误'
+					}
+				}
+			});
+			
+		});
+	</script>
+	</head>
+	<body>
+		<form id="form1">
+			用户名：
+		<input type="text" name="username" />
+		<br />
+		密码:
+		<input type="text" name="password" />
+		<br />
+		确认密码:
+		<input type="text" name="passwordRepeat"/>
+		<br />
+		问题验证：<p id="question"></p>
+		<input type="text" name="answer" />
+		<button type="button" id="refresh">刷新</button>
+		
+		<br />
+		<button type="submit">提交</button>
+		</form>
+		
+		
+		
+	</body>
+</html>

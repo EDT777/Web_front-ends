@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			p{
+				font-size: 64px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div><button type="button" id="btn" onclick="doGame()">开始</button></div>
+	<p id="nump">50</p>
+	
+	<script type="text/javascript">
+		var btn =document.getElementById('btn');
+		var num=document.getElementById('nump');
+		var isrunning = false;
+		var timer;
+		
+		function doGame(){
+			if(!isrunning){
+				timer=setInterval(randNum,100);
+				btn.innerText='停止';
+			}else{
+				clearInterval(timer);
+				btn.innerText='开始';
+			}
+			
+			isrunning=!isrunning;
+		}
+		
+		function randNum(){
+			var num=Math.floor(100*Math.random())+1;
+			nump.innerText=num;}
+	</script>
+	</body>
+</html>
